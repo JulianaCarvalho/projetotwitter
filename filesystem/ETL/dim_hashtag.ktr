@@ -197,7 +197,7 @@
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>hashtags</leftvalue>
+ <leftvalue>hashtag</leftvalue>
  <function>IS NOT NULL</function>
  <rightvalue/>
  <value><name>constant</name><type>String</type><text>&#x5b;&#x5d;</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;</mask></value> </condition>
@@ -230,7 +230,7 @@
       </valuetypes>
     <fields>
       <field>
-        <name>hashtags</name>
+        <name>hashtag</name>
         <value>N</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
@@ -257,7 +257,7 @@
            </partitioning>
     <fields>
       <field>
-        <name>hashtags</name>
+        <name>hashtag</name>
         <value>&#x5b;&#x5d;</value>
         </field>
       </fields>
@@ -283,7 +283,7 @@
    <usevar>N</usevar>
     <fields>
       <field>
-        <name>hashtags</name>
+        <name>hashtag</name>
         <value>Y</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
@@ -309,7 +309,7 @@
            <schema_name/>
            </partitioning>
     <connection>projeto</connection>
-    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, hashtags&#xd;&#xa;, hash&#xd;&#xa;FROM ods_hashtags&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, hashtag&#xd;&#xa;&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

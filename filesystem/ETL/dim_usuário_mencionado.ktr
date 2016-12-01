@@ -124,37 +124,10 @@
   </connection>
   <order>
   <hop> <from>Cria sk</from><to>Table output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Set field value to a constant</to><enabled>Y</enabled> </hop>
-  <hop> <from>Table input</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set field value to a constant</from><to>Cria sk</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Split Fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Split Fields</from><to>Remove aspas</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove aspas</from><to>Cria sk</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>projeto</connection>
-    <sql>SELECT&#xd;&#xa;  user_m_screename&#xd;&#xa;, user_m_name&#xd;&#xa;, user_m_id&#xd;&#xa;, tweet_id&#xd;&#xa;FROM ods_usuario_mencionado&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>256</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Cria sk</name>
     <type>Sequence</type>
@@ -178,34 +151,15 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>592</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29; 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>560</xloc>
+      <xloc>432</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
+    <name>Table input</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -214,48 +168,17 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>Set field value to a constant</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29; 2</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>user_m_screename</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>neymar</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;</mask></value> </condition>
-    </compare>
+    <connection>projeto</connection>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, user_mentions&#xd;&#xa;&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>435</xloc>
-      <yloc>158</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Set field value to a constant</name>
-    <type>SetValueConstant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-   <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>user_m_screename</name>
-        <value>Y</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>435</xloc>
-      <yloc>270</yloc>
+      <xloc>96</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -292,8 +215,123 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>720</xloc>
-      <yloc>272</yloc>
+      <xloc>560</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Split Fields</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <splitfield>user_mentions</splitfield>
+   <delimiter>,&#x22;</delimiter>
+   <enclosure/>
+    <fields>      <field>        <name>Screen_name</name>
+        <id>&#x5b;&#x7b;&#x22;screen_name&#x22;&#x3a;&#x22;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format>aaaaaaa</format>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>name</name>
+        <id>name&#x22;&#x3a;&#x22;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format>aaaaaaa</format>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>id_str</name>
+        <id>id_str&#x22;&#x3a;&#x22;</id>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format>aaaaaaa</format>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Remove aspas</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>Screen_name</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>id_str</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>name</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>&#x22;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>320</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

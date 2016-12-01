@@ -69,7 +69,7 @@
   <created_date>2016&#x2f;11&#x2f;28 15&#x3a;34&#x3a;00.554</created_date>
   <modified_user>-</modified_user>
   <modified_date>2016&#x2f;11&#x2f;28 15&#x3a;34&#x3a;00.554</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -132,32 +132,6 @@
   <hop> <from>Set field value to a constant</from><to>Dummy</to><enabled>Y</enabled> </hop>
   <hop> <from>Table input</from><to>Null if...</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>projeto</connection>
-    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, tweet_url&#xd;&#xa;FROM ods_url&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>160</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Cria sk</name>
     <type>Sequence</type>
@@ -222,7 +196,7 @@
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>tweet_url</leftvalue>
+ <leftvalue>url_tweet</leftvalue>
  <function>IS NOT NULL</function>
  <rightvalue/>
  <value><name>constant</name><type>String</type><text>&#x5b;&#x5d;</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;</mask></value> </condition>
@@ -255,7 +229,7 @@
       </valuetypes>
     <fields>
       <field>
-        <name>tweet_url</name>
+        <name>url_tweet</name>
         <value>N</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
@@ -282,7 +256,7 @@
            </partitioning>
     <fields>
       <field>
-        <name>tweet_url</name>
+        <name>url_tweet</name>
         <value>&#x5b;&#x5d;</value>
         </field>
       </fields>
@@ -308,7 +282,7 @@
    <usevar>N</usevar>
     <fields>
       <field>
-        <name>tweet_url</name>
+        <name>url_tweet</name>
         <value>Y</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
@@ -318,6 +292,32 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>416</xloc>
       <yloc>272</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>projeto</connection>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, url_tweet&#xd;&#xa;&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>160</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
