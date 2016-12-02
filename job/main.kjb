@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>captura e carga_ODS</name>
+  <name>main</name>
     <description/>
     <extended_description/>
     <job_version/>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;12&#x2f;01 00&#x3a;50&#x3a;19.749</created_date>
+  <created_date>2016&#x2f;12&#x2f;01 09&#x3a;24&#x3a;12.712</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;12&#x2f;01 00&#x3a;50&#x3a;19.749</modified_date>
+  <modified_date>2016&#x2f;12&#x2f;01 09&#x3a;24&#x3a;12.712</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -50,80 +50,76 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
-      <yloc>128</yloc>
+      <xloc>192</xloc>
+      <yloc>96</yloc>
       </entry>
     <entry>
-      <name>Transforma&#xe7;&#xe3;o_stage</name>
+      <name>ODS</name>
       <description/>
-      <type>TRANS</type>
+      <type>JOB</type>
       <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;filesystem&#x5c;ODS&#x5c;transforma&#xe7;&#xe3;o_stage.ktr</filename>
-      <transname/>
+      <job_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;job&#x5c;captura e carga_ODS.kjb</filename>
+      <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
+      <loglevel>Nothing</loglevel>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
+      <pass_export>N</pass_export>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>352</xloc>
-      <yloc>128</yloc>
+      <xloc>400</xloc>
+      <yloc>96</yloc>
       </entry>
     <entry>
-      <name>capture_user_timeline</name>
+      <name>DW</name>
       <description/>
-      <type>TRANS</type>
+      <type>JOB</type>
       <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;filesystem&#x5c;ODS&#x5c;captura_user_timeline.ktr</filename>
-      <transname/>
+      <job_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;job&#x5c;carga_dw.kjb</filename>
+      <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
+      <loglevel>Nothing</loglevel>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
+      <pass_export>N</pass_export>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>528</xloc>
-      <yloc>128</yloc>
+      <xloc>592</xloc>
+      <yloc>96</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Transforma&#xe7;&#xe3;o_stage</to>
+      <to>ODS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -131,8 +127,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Transforma&#xe7;&#xe3;o_stage</from>
-      <to>capture_user_timeline</to>
+      <from>ODS</from>
+      <to>DW</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
