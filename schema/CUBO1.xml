@@ -1,0 +1,96 @@
+<Schema name="Twitter">
+  <Cube name="Tweet" visible="true" cache="true" enabled="true">
+    <Table name="fato_twitter" schema="public" alias="">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_usuario" name="Usu&#225;rio">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_usuario">
+        <Table name="dim_usuario" schema="public" alias="">
+        </Table>
+        <Level name="Usu&#225;rio Screen_name" visible="true" column="user_screen_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="codigo do usu&#225;rio" column="user_id" type="String">
+          </Property>
+        </Level>
+        <Level name="Nome" visible="true" column="user_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="localiza&#231;&#227;o" visible="true" column="user_location" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_hashtag" name="Hashtag">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_hashtag">
+        <Table name="dim_hashtag" schema="public">
+        </Table>
+        <Level name="Hashtag" visible="true" column="hashtag" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="codigo da hashtag" column="tweet_id" type="String">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_midia" name="Midia">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_midia">
+        <Table name="dim_midia" schema="public" alias="">
+        </Table>
+        <Level name="Midia" visible="true" column="media" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="codigo da midia" column="tweet_id" type="String">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_url" name="URL">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_url">
+        <Table name="dim_url" schema="public" alias="">
+        </Table>
+        <Level name="url" visible="true" column="url_tweet" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="codigo da url" column="tweet_id" type="String">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_usuario_mencionado" name="Usuario Mencionado">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_usuario_mencionado">
+        <Table name="dim_usu&#225;rio_mencionado" schema="public" alias="">
+        </Table>
+        <Level name="usuario mencionado" visible="true" column="screen_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="codigo do usuario mencionado" column="id_str" type="String">
+          </Property>
+        </Level>
+        <Level name="Nome" visible="true" column="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_tempo" name="Tempo">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_tempo">
+        <Table name="dim_tempo" schema="public" alias="">
+        </Table>
+        <Level name="Ano" visible="true" column="Year" nameColumn="Year" ordinalColumn="Year" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" column="monthdesc" ordinalColumn="Month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+          <Property name="Mes Abrev" column="monthshortdesc" type="String">
+          </Property>
+        </Level>
+        <Level name="Dia" visible="true" column="dayofmonth" nameColumn="dayofmonth" ordinalColumn="dayofmonth" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+          <Property name="Nome do dia" column="dayofweekdesc" type="String">
+          </Property>
+          <Property name="Dia do ano" column="dayofyear" type="Integer">
+          </Property>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Tweet">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo">
+        <Level name="Texto do tweet" visible="true" column="tweet_texto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="Codigo do tweet" column="tweet_id" type="String">
+          </Property>
+        </Level>
+        <Level name="Tipo de intera&#231;&#227;o" visible="true" column="tipo_interacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade de tweets" column="tweet_id" datatype="Integer" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Quantidade de midia" column="sk_midia" datatype="Integer" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Quantidade de retweets" column="retweeted_count" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
