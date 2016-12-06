@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>dim_midia</name>
+    <name>captura_seguidores</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,38 +66,14 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;11&#x2f;28 14&#x3a;59&#x3a;10.860</created_date>
+  <created_date>2016&#x2f;12&#x2f;06 12&#x3a;39&#x3a;11.881</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;11&#x2f;28 14&#x3a;59&#x3a;10.860</modified_date>
+  <modified_date>2016&#x2f;12&#x2f;06 12&#x3a;39&#x3a;11.881</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>DW</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>projeto_dw</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb09ab7eca93a7d5</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>projeto</name>
     <server>localhost</server>
@@ -123,18 +99,17 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Null if...</to><enabled>Y</enabled> </hop>
-  <hop> <from>Null if...</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>If field value is null 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Set field value to a constant</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set field value to a constant</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>If field value is null 2</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Cria sk</from><to>Table output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29; 2</from><to>Cria sk</to><enabled>Y</enabled> </hop>
+  <hop> <from>Extrair rea&#xe7;&#xf5;es profile</from><to>projeta 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modified Java Script Value 2</from><to>scrapping profile</to><enabled>Y</enabled> </hop>
+  <hop> <from>projeta 3</from><to>regex </to><enabled>Y</enabled> </hop>
+  <hop> <from>regex </from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>scrapping profile</from><to>Extrair rea&#xe7;&#xf5;es profile</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Modified Java Script Value 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>Serialize to file</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Cria sk</name>
-    <type>Sequence</type>
+    <name>Extrair rea&#xe7;&#xf5;es profile</name>
+    <type>UserDefinedJavaClass</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -143,109 +118,66 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <valuename>sk_midia</valuename>
-      <use_database>N</use_database>
-      <connection>projeto</connection>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
 
-  <step>
-    <name>Dummy &#x28;do nothing&#x29; 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>544</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
+    <definitions>
+        <definition>
+        <class_type>TRANSFORM_CLASS</class_type>
 
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Set field value to a constant</send_true_to>
-<send_false_to>If field value is null 2</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>media</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>&#x5b;&#x5d;</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
+        <class_name>Processor</class_name>
 
-  <step>
-    <name>If field value is null 2</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
+        <class_source><![CDATA[
+public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws KettleException{
+	if (first){
+	  first = false;
+	}
+
+	Object[] r = getRow();
+
+	if (r == null) {
+	  setOutputDone();
+	  return false;
+	}
+
+    r = createOutputRow(r, data.outputRowMeta.size());
+
+    String html = get(Fields.In, "html_profile").getString(r);
+
+	jodd.jerry.Jerry doc = jodd.jerry.Jerry.jerry(html);
+    String lista = doc.$("div.ProfileNav").html();
+    
+    get(Fields.Out, "html_profile").setValue(r, "<lista>"+lista+"</lista>");
+
+
+    putRow(data.outputRowMeta, r);
+
+	return true;
+}
+]]></class_source>
+        </definition>
+    </definitions>
     <fields>
-      <field>
-        <name>media</name>
-        <value>N</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
+        <field>
+        <field_name> lista</field_name>
+
+        <field_type>String</field_type>
+
+        <field_length>-1</field_length>
+
+        <field_precision>-1</field_precision>
+
         </field>
-      </fields>
-     <cluster_schema/>
+    </fields><clear_result_fields>N</clear_result_fields>
+<info_steps></info_steps><target_steps></target_steps><usage_parameters></usage_parameters>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>544</xloc>
-      <yloc>192</yloc>
+      <xloc>608</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Null if...</name>
-    <type>NullIf</type>
+    <name>Modified Java Script Value 2</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -254,23 +186,34 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>
-      <field>
-        <name>media</name>
-        <value>undefined</value>
-        </field>
-      </fields>
-     <cluster_schema/>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var screen_name &#x3d; screen_name&#x3b;&#xd;&#xa;&#xd;&#xa;url_twitter &#x3d; &#x27;https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;&#x27;&#x3b;&#xd;&#xa;url &#x3d; url_twitter &#x2b; screen_name&#x3b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>screen_name</name>
+        <rename>screen_name</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>url</name>
+        <rename>url</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>272</xloc>
-      <yloc>192</yloc>
+      <xloc>320</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Set field value to a constant</name>
-    <type>SetValueConstant</type>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -279,19 +222,23 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-   <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>media</name>
-        <value>Y</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
+    <fields>      <field>        <name>screen_name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>following</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>followers</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>320</yloc>
+      <xloc>752</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -308,7 +255,7 @@
            <schema_name/>
            </partitioning>
     <connection>projeto</connection>
-    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, media&#xd;&#xa;, media_count&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
+    <sql>SELECT distinct&#xd;&#xa;  screen_name&#xd;&#xa;, id_screename&#xd;&#xa;FROM captura_likes&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -316,15 +263,15 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>144</xloc>
-      <yloc>192</yloc>
+      <xloc>160</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
+    <name>projeta 3</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -333,29 +280,130 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>DW</connection>
-    <schema/>
-    <table>dim_midia</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
+    <fields>      <field>        <name>screen_name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>url</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>html_profile</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name> lista</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>752</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>regex </name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var regex &#x3d; html_profile.match&#x28;&#x2f;title&#x3d;&#x22;&#x5c;w&#x2a;&#x2f;g&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;for&#x28;x &#x3d; 0 &#x3b; x&#x3c; regex.length &#x3b; x&#x2b;&#x2b;&#x29;&#x7b;&#xd;&#xa;   regex&#x5b;x&#x5d; &#x3d; regex&#x5b;x&#x5d;.replace&#x28;&#x2f;title&#x3d;&#x22;&#x2f;g, &#x22;&#x22;&#x29;.replace&#x28;&#x27;&#x22;&#x27;, &#x27;&#x27;&#x29;&#x3b;&#xd;&#xa;    var following &#x3d; regex&#x5b;1&#x5d;&#x3b;&#xd;&#xa;    var followers &#x3d; regex&#x5b;2&#x5d;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;regex &#x3d; regex.join&#x28;&#x22;,&#x22;&#x29;&#x3b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>regex</name>
+        <rename>regex</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>following</name>
+        <rename>following</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>followers</name>
+        <rename>followers</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>752</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>scrapping profile</name>
+    <type>HTTP</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <url/>
+    <urlInField>Y</urlInField>
+    <urlField>url</urlField>
+    <encoding/>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <socketTimeout>10000</socketTimeout>
+    <connectionTimeout>10000</connectionTimeout>
+    <closeIdleConnectionsTime>-1</closeIdleConnectionsTime>
+    <lookup>
+    </lookup>
+    <result>
+      <name>html_profile</name>
+      <code/>
+      <response_time/>
+    </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>800</xloc>
-      <yloc>320</yloc>
+      <xloc>480</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Serialize to file</name>
+    <type>CubeOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file>
+      <name>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;output&#x5c;seguidores_seguidos.cube</name>
+      <add_to_result_filenames>N</add_to_result_filenames>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+    </file>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>752</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

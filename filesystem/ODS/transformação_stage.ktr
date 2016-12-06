@@ -589,7 +589,7 @@
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>tweet_id</name>
         <rename>tweet_id</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -604,7 +604,7 @@
         <storage_type/>
       </meta>      <meta>        <name>tweet_texto</name>
         <rename>tweet_texto</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -619,7 +619,7 @@
         <storage_type/>
       </meta>      <meta>        <name>tweet_data</name>
         <rename>tweet_data</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -634,7 +634,7 @@
         <storage_type/>
       </meta>      <meta>        <name>user_id</name>
         <rename>user_id</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -649,7 +649,7 @@
         <storage_type/>
       </meta>      <meta>        <name>user_name</name>
         <rename>user_name</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -664,7 +664,7 @@
         <storage_type/>
       </meta>      <meta>        <name>user_screen_name</name>
         <rename>user_screen_name</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -679,7 +679,7 @@
         <storage_type/>
       </meta>      <meta>        <name>user_location</name>
         <rename>user_location</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -694,9 +694,9 @@
         <storage_type/>
       </meta>      <meta>        <name>user_qtd_amigos</name>
         <rename>user_qtd_amigos</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
-        <precision>0</precision>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -709,9 +709,9 @@
         <storage_type/>
       </meta>      <meta>        <name>user_qtd_seguidores</name>
         <rename>user_qtd_seguidores</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
-        <precision>0</precision>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -724,9 +724,9 @@
         <storage_type/>
       </meta>      <meta>        <name>user_qtd_listas</name>
         <rename>user_qtd_listas</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
-        <precision>0</precision>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -739,9 +739,9 @@
         <storage_type/>
       </meta>      <meta>        <name>user_qtd_likes</name>
         <rename>user_qtd_likes</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
-        <precision>0</precision>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -754,7 +754,7 @@
         <storage_type/>
       </meta>      <meta>        <name>hashtag</name>
         <rename>hashtag</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -769,7 +769,7 @@
         <storage_type/>
       </meta>      <meta>        <name>user_mentions</name>
         <rename>user_mentions</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -784,7 +784,7 @@
         <storage_type/>
       </meta>      <meta>        <name>url_tweet</name>
         <rename>url_tweet</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -799,7 +799,7 @@
         <storage_type/>
       </meta>      <meta>        <name>media</name>
         <rename>media</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -814,7 +814,7 @@
         <storage_type/>
       </meta>      <meta>        <name>media_count</name>
         <rename>media_count</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -829,8 +829,8 @@
         <storage_type/>
       </meta>      <meta>        <name>data_string_concat</name>
         <rename>data_string_concat</rename>
-        <type>None</type>
-        <length>0</length>
+        <type>String</type>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -844,7 +844,7 @@
         <storage_type/>
       </meta>      <meta>        <name>status</name>
         <rename>status</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -859,7 +859,7 @@
         <storage_type/>
       </meta>      <meta>        <name>url_post</name>
         <rename>url_post</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -874,7 +874,7 @@
         <storage_type/>
       </meta>      <meta>        <name>retweeted_status</name>
         <rename>retweeted_status</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -889,9 +889,9 @@
         <storage_type/>
       </meta>      <meta>        <name>retweeted_count</name>
         <rename>retweeted_count</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
-        <precision>0</precision>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -904,9 +904,9 @@
         <storage_type/>
       </meta>      <meta>        <name>likes_count</name>
         <rename>likes_count</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
-        <precision>0</precision>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -919,7 +919,7 @@
         <storage_type/>
       </meta>      <meta>        <name>tipo_interacao</name>
         <rename>tipo_interacao</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -1161,39 +1161,39 @@
     <fields>
       <field>
         <source_value>Jan</source_value>
-        <target_value>1</target_value>
+        <target_value>01</target_value>
       </field>
       <field>
         <source_value>Feb</source_value>
-        <target_value>2</target_value>
+        <target_value>02</target_value>
       </field>
       <field>
         <source_value>Mar</source_value>
-        <target_value>3</target_value>
+        <target_value>03</target_value>
       </field>
       <field>
         <source_value>Apr</source_value>
-        <target_value>4</target_value>
+        <target_value>04</target_value>
       </field>
       <field>
         <source_value>May</source_value>
-        <target_value>5</target_value>
+        <target_value>05</target_value>
       </field>
       <field>
         <source_value>Jun</source_value>
-        <target_value>6</target_value>
+        <target_value>06</target_value>
       </field>
       <field>
         <source_value>Jul</source_value>
-        <target_value>7</target_value>
+        <target_value>07</target_value>
       </field>
       <field>
         <source_value>Aug</source_value>
-        <target_value>8</target_value>
+        <target_value>08</target_value>
       </field>
       <field>
         <source_value>Sep</source_value>
-        <target_value>9</target_value>
+        <target_value>09</target_value>
       </field>
       <field>
         <source_value>Oct</source_value>
@@ -1231,7 +1231,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var status &#x3d; JSON.parse&#x28;status&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var tweet_id			&#x3d; status&#x5b;&#x22;id_str&#x22;&#x5d;&#x3b;&#xa;var tweet_texto			&#x3d; status&#x5b;&#x22;text&#x22;&#x5d;&#x3b;&#xd;&#xa;var tweet_data			&#x3d; status&#x5b;&#x22;created_at&#x22;&#x5d;&#x3b;&#xa;var user_id				&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;id_str&#x22;&#x5d;&#x3b;&#xa;var user_name        	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;name&#x22;&#x5d;&#x3b;&#xa;var user_screen_name 	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;screen_name&#x22;&#x5d;&#x3b;&#xa;var user_location    	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;location&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_amigos		&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;friends_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_seguidores	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;followers_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_listas		&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;listed_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_likes		&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;favourites_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var hashtag     		&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;hashtags&#x22;&#x5d;&#x29;&#x3b;&#xd;&#xa;var user_mentions		&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;user_mentions&#x22;&#x5d;&#x29;&#x3b;&#xd;&#xa;var url_tweet			&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;urls&#x22;&#x5d;&#x29;&#x3b;&#xa;var media       		&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;media&#x22;&#x5d;&#x29;&#x3b;&#xa;var media_count 		&#x3d; typeof status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;media&#x22;&#x5d; &#x3d;&#x3d;&#x3d; &#x22;undefined&#x22; &#x3f; 0 &#x3a; &#xa;							status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;media&#x22;&#x5d;.length&#x3b;&#xd;&#xa;&#xd;&#xa;var retweeted_status	&#x3d; status&#x5b;&#x22;retweeted_status&#x22;&#x5d;&#x3b;&#xd;&#xa;var retweeted_count		&#x3d; status&#x5b;&#x22;retweet_count&#x22;&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;var likes_count 		&#x3d; status&#x5b;&#x22;favorite_count&#x22;&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;var url_post &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;&#x22;&#x2b;user_screen_name&#x2b;&#x22;&#x2f;status&#x2f;&#x22;&#x2b;tweet_id&#x3b;&#xd;&#xa;&#xd;&#xa;var tipo_interacao		&#x3d; &#x22;MENTIONED - ONCASE&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;retweeted_status &#x21;&#x3d; null&#x29;&#x7b;&#xd;&#xa;&#xd;&#xa;tipo_interacao &#x3d; &#x22;RT - ONCASE&#x22;&#x3b;&#xd;&#xa;&#x7d;&#x3b;&#xd;&#xa;&#xa;&#xa;&#x2f;&#x2a;&#xa;&#xa;&#xa;id_user	&#x24;.statuses.&#x2a;.user.id	None							none	N&#xa;name	&#x24;.statuses.&#x2a;.user.name	None							none	N&#xa;screen_name	&#x24;.statuses.&#x2a;.user.screen_name	None							none	N&#xa;location	&#x24;.statuses.&#x2a;.user.location	None							none	N&#xa;description_profile	&#x24;.statuses.&#x2a;.user.description	None							none	N&#xa;url_profile	&#x24;.statuses.&#x2a;.user.url	None							none	N&#xa;followers_count	&#x24;.statuses.&#x2a;.user.followers_count	None							none	N&#xa;friends_count	&#x24;.statuses.&#x2a;.user.friends_count	None							none	N&#xa;listed_count	&#x24;.statuses.&#x2a;.user.listed_count	None							none	N&#xa;time_zone	&#x24;.statuses.&#x2a;.user.time_zone	None							none	N&#xa;text	&#x24;.statuses.&#x2a;.text	None							none	N&#xa;id_twiter	&#x24;.statuses.&#x2a;.id	None							none	N&#xa;retweet_count	&#x24;.statuses.&#x2a;.retweet_count	None							none	N&#xa;created_at_twitter	&#x24;.statuses.&#x2a;.created_at	None							none	N&#xa;hashtags	&#x24;.statuses.&#x2a;.entities.hashtags	None							none	N&#xa;&#x2a;&#x2f;</jsScript_script>
+        <jsScript_script>var status &#x3d; JSON.parse&#x28;status&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var tweet_id			&#x3d; status&#x5b;&#x22;id_str&#x22;&#x5d;&#x3b;&#xa;var tweet_texto			&#x3d; status&#x5b;&#x22;text&#x22;&#x5d;&#x3b;&#xd;&#xa;var tweet_data			&#x3d; status&#x5b;&#x22;created_at&#x22;&#x5d;&#x3b;&#xa;var user_id				&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;id_str&#x22;&#x5d;&#x3b;&#xa;var user_name        	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;name&#x22;&#x5d;&#x3b;&#xa;var user_screen_name 	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;screen_name&#x22;&#x5d;&#x3b;&#xa;var user_location    	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;location&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_amigos		&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;friends_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_seguidores	&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;followers_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_listas		&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;listed_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var user_qtd_likes		&#x3d; status&#x5b;&#x22;user&#x22;&#x5d;&#x5b;&#x22;favourites_count&#x22;&#x5d;&#x3b;&#xd;&#xa;var hashtag     		&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;hashtags&#x22;&#x5d;&#x29;&#x3b;&#xd;&#xa;var user_mentions		&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;user_mentions&#x22;&#x5d;&#x29;&#x3b;&#xd;&#xa;var url_tweet			&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;urls&#x22;&#x5d;&#x29;&#x3b;&#xa;var media       		&#x3d; JSON.stringify&#x28;status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;media&#x22;&#x5d;&#x29;&#x3b;&#xa;var media_count 		&#x3d; typeof status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;media&#x22;&#x5d; &#x3d;&#x3d;&#x3d; &#x22;undefined&#x22; &#x3f; 0 &#x3a; &#xa;							status&#x5b;&#x22;entities&#x22;&#x5d;&#x5b;&#x22;media&#x22;&#x5d;.length&#x3b;&#xd;&#xa;&#xd;&#xa;var retweeted_status	&#x3d; status&#x5b;&#x22;retweeted_status&#x22;&#x5d;&#x3b;&#xd;&#xa;var retweeted_count		&#x3d; status&#x5b;&#x22;retweet_count&#x22;&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;var likes_count 		&#x3d; status&#x5b;&#x22;favorite_count&#x22;&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;var url_post &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;&#x22;&#x2b;user_screen_name&#x2b;&#x22;&#x2f;status&#x2f;&#x22;&#x2b;tweet_id&#x3b;&#xd;&#xa;&#xd;&#xa;var tipo_interacao		&#x3d; &#x22;MENTIONED - ONCASE&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;retweeted_status &#x21;&#x3d; null&#x29;&#x7b;&#xd;&#xa;&#xd;&#xa;tipo_interacao &#x3d; &#x22;RT - ONCASE&#x22;&#x3b;&#xd;&#xa;&#x7d;&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;hashtag &#x3d;&#x3d; &#x22;&#x5b;&#x5d;&#x22;&#x29; &#x7b;&#xd;&#xa;      hashtag &#x3d; &#x22;N&#x22;&#xd;&#xa;&#x7d; else hashtag &#x3d;&#x22;Y&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;media &#x3d;&#x3d; null&#x29;&#x7b;&#xd;&#xa;	media&#x3d; &#x22;N&#x22;&#xd;&#xa;&#x7d; else media &#x3d; &#x22;Y&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;url_tweet &#x3d;&#x3d; &#x22;&#x5b;&#x5d;&#x22;&#x29;&#x7b;&#xd;&#xa;	url_tweet&#x3d; &#x22;N&#x22;&#xd;&#xa;&#x7d; else url_tweet &#x3d; &#x22;Y&#x22;&#x3b;&#xd;&#xa;&#xd;&#xa;&#xa;&#x2f;&#x2a;&#xa;&#xa;&#xa;id_user	&#x24;.statuses.&#x2a;.user.id	None							none	N&#xa;name	&#x24;.statuses.&#x2a;.user.name	None							none	N&#xa;screen_name	&#x24;.statuses.&#x2a;.user.screen_name	None							none	N&#xa;location	&#x24;.statuses.&#x2a;.user.location	None							none	N&#xa;description_profile	&#x24;.statuses.&#x2a;.user.description	None							none	N&#xa;url_profile	&#x24;.statuses.&#x2a;.user.url	None							none	N&#xa;followers_count	&#x24;.statuses.&#x2a;.user.followers_count	None							none	N&#xa;friends_count	&#x24;.statuses.&#x2a;.user.friends_count	None							none	N&#xa;listed_count	&#x24;.statuses.&#x2a;.user.listed_count	None							none	N&#xa;time_zone	&#x24;.statuses.&#x2a;.user.time_zone	None							none	N&#xa;text	&#x24;.statuses.&#x2a;.text	None							none	N&#xa;id_twiter	&#x24;.statuses.&#x2a;.id	None							none	N&#xa;retweet_count	&#x24;.statuses.&#x2a;.retweet_count	None							none	N&#xa;created_at_twitter	&#x24;.statuses.&#x2a;.created_at	None							none	N&#xa;hashtags	&#x24;.statuses.&#x2a;.entities.hashtags	None							none	N&#xa;&#x2a;&#x2f;</jsScript_script>
       </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
         <jsScript_name>Item_0</jsScript_name>
         <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;</jsScript_script>
