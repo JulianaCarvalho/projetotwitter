@@ -1,10 +1,10 @@
 <Schema name="Twitter">
   <Cube name="Tweet" visible="true" cache="true" enabled="true">
-    <Table name="fato_twitter" schema="public" alias="">
+    <Table name="fato_twitter" schema="public">
     </Table>
-    <Dimension type="StandardDimension" visible="true" foreignKey="sk_usuario" name="Usu&#225;rio">
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_usuario" highCardinality="false" name="Usu&#225;rio">
       <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_usuario">
-        <Table name="dim_usuario" schema="public" alias="">
+        <Table name="dim_usuario" schema="public">
         </Table>
         <Level name="Usu&#225;rio Screen_name" visible="true" column="user_screen_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
           <Property name="codigo do usu&#225;rio" column="user_id" type="String">
@@ -16,39 +16,9 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="sk_hashtag" name="Hashtag">
-      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_hashtag">
-        <Table name="dim_hashtag" schema="public">
-        </Table>
-        <Level name="Hashtag" visible="true" column="hashtag" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-          <Property name="codigo da hashtag" column="tweet_id" type="String">
-          </Property>
-        </Level>
-      </Hierarchy>
-    </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="sk_midia" name="Midia">
-      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_midia">
-        <Table name="dim_midia" schema="public" alias="">
-        </Table>
-        <Level name="Midia" visible="true" column="media" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-          <Property name="codigo da midia" column="tweet_id" type="String">
-          </Property>
-        </Level>
-      </Hierarchy>
-    </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="sk_url" name="URL">
-      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_url">
-        <Table name="dim_url" schema="public" alias="">
-        </Table>
-        <Level name="url" visible="true" column="url_tweet" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-          <Property name="codigo da url" column="tweet_id" type="String">
-          </Property>
-        </Level>
-      </Hierarchy>
-    </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="sk_usuario_mencionado" name="Usuario Mencionado">
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_usuario_mencionado" highCardinality="false" name="Usuario Mencionado">
       <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_usuario_mencionado">
-        <Table name="dim_usu&#225;rio_mencionado" schema="public" alias="">
+        <Table name="dim_usu&#225;rio_mencionado" schema="public">
         </Table>
         <Level name="usuario mencionado" visible="true" column="screen_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
           <Property name="codigo do usuario mencionado" column="id_str" type="String">
@@ -58,9 +28,9 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="TimeDimension" visible="true" foreignKey="sk_tempo" name="Tempo">
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_tempo" highCardinality="false" name="Tempo">
       <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_tempo">
-        <Table name="dim_tempo" schema="public" alias="">
+        <Table name="dim_tempo" schema="public">
         </Table>
         <Level name="Ano" visible="true" column="Year" nameColumn="Year" ordinalColumn="Year" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
         </Level>
@@ -76,7 +46,7 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" name="Tweet">
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Tweet">
       <Hierarchy visible="true" hasAll="true" allMemberName="Tudo">
         <Level name="Texto do tweet" visible="true" column="tweet_texto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
           <Property name="Codigo do tweet" column="tweet_id" type="String">
@@ -84,13 +54,23 @@
         </Level>
         <Level name="Tipo de intera&#231;&#227;o" visible="true" column="tipo_interacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
+        <Level name="Midia" visible="true" column="media" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Hashtag" visible="true" column="hashtag" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Link" visible="true" column="url_tweet" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
       </Hierarchy>
     </Dimension>
-    <Measure name="Quantidade de tweets" column="tweet_id" datatype="Integer" aggregator="count" visible="true">
-    </Measure>
-    <Measure name="Quantidade de midia" column="sk_midia" datatype="Integer" aggregator="count" visible="true">
+    <Measure name="Quantidade de tweets" column="tweet_id" datatype="Integer" aggregator="distinct count" visible="true">
     </Measure>
     <Measure name="Quantidade de retweets" column="retweeted_count" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Quantidade de likes" column="likes_count" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Quantidade de seguidos" column="user_qtd_amigos" datatype="Integer" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="Quantidade de seguidores" column="user_qtd_seguidores" datatype="Integer" aggregator="max" visible="true">
     </Measure>
   </Cube>
 </Schema>
