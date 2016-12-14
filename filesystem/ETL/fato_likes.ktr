@@ -66,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;12&#x2f;06 09&#x3a;40&#x3a;01.595</created_date>
+  <created_date>2016&#x2f;12&#x2f;13 13&#x3a;17&#x3a;31.469</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;12&#x2f;06 09&#x3a;40&#x3a;01.595</modified_date>
+  <modified_date>2016&#x2f;12&#x2f;13 13&#x3a;17&#x3a;31.469</modified_date>
     <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
@@ -98,8 +98,34 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>projeto</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>projeto_stage</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb09ab7eca93a7d5</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
   <hop> <from>Table input</from><to>Database lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Table input</name>
@@ -112,8 +138,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>DW</connection>
-    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, screen_name&#xd;&#xa;, id_screename&#xd;&#xa;FROM likes&#xd;&#xa;</sql>
+    <connection>projeto</connection>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, id_screenname&#xd;&#xa;, screen_name&#xd;&#xa;, seguidos&#xd;&#xa;, seguidores&#xd;&#xa;FROM likes_seguidores&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -122,7 +148,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>144</xloc>
-      <yloc>176</yloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -144,27 +170,160 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>likes</table>
+      <table>dim_user_likes</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>id_screename</name>
-        <field>id_screename</field>
+        <name>id_screenname</name>
+        <field>id_screenname</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>id_screename</name>
-        <rename>sk_screen_name</rename>
+        <name>sk_user_likes</name>
+        <rename>sk_user_likes</rename>
         <default>0</default>
         <type>Integer</type>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>176</yloc>
+      <xloc>344</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>tweet_id</name>
+        <rename>tweet_id</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>id_screenname</name>
+        <rename>id_screenname</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>seguidos</name>
+        <rename>seguidos</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>seguidores</name>
+        <rename>seguidores</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>sk_user_likes</name>
+        <rename>sk_user_likes</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>544</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>DW</connection>
+    <schema/>
+    <table>fato_likes</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>744</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -1,6 +1,8 @@
 <Schema name="Twitter">
   <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Informa&#231;&#245;es do tweet">
-    <Hierarchy visible="true" hasAll="true" allMemberName="Tudo">
+    <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="tweet_id">
+      <Table name="dim_tweet" schema="public">
+      </Table>
       <Level name="Texto do tweet" visible="true" column="tweet_texto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         <Property name="C&#243;digo do tweet" column="tweet_id" type="String">
         </Property>
@@ -55,14 +57,14 @@
     <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_user_likes">
       <Table name="dim_user_likes" schema="public">
       </Table>
-      <Level name="Screen_namee" visible="true" column="screen_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      <Level name="Screen_name" visible="true" column="screen_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
   </Dimension>
   <Cube name="Tweet" visible="true" cache="true" enabled="true">
     <Table name="fato_twitter" schema="public">
     </Table>
-    <DimensionUsage source="Informa&#231;&#245;es do tweet" name="Informa&#231;&#245;es do tweet" visible="true" highCardinality="false">
+    <DimensionUsage source="Informa&#231;&#245;es do tweet" name="Informa&#231;&#245;es do tweet" visible="true" foreignKey="tweet_id" highCardinality="false">
     </DimensionUsage>
     <DimensionUsage source="Usu&#225;rio" name="Usu&#225;rio" visible="true" foreignKey="user_id" highCardinality="false">
     </DimensionUsage>
@@ -86,23 +88,27 @@
     </Table>
     <DimensionUsage source="User_likes" name="User_likes" visible="true" foreignKey="sk_user_likes" highCardinality="false">
     </DimensionUsage>
+    <DimensionUsage source="Informa&#231;&#245;es do tweet" name="Informa&#231;&#245;es do tweet" visible="true" foreignKey="tweet_id" highCardinality="false">
+    </DimensionUsage>
     <Measure name="Quantidade de seguidores" column="seguidores" datatype="Integer" aggregator="max" visible="true">
     </Measure>
     <Measure name="Quantidade de seguidos" column="seguidos" datatype="Integer" aggregator="max" visible="true">
     </Measure>
   </Cube>
   <VirtualCube enabled="true" name="Tweet x Likes" visible="true">
-    <VirtualCubeDimension cubeName="Tweet" visible="true" highCardinality="false" name="Informa&#231;&#245;es do tweet">
-    </VirtualCubeDimension>
     <VirtualCubeDimension cubeName="Likes" visible="true" highCardinality="false" name="User_likes">
     </VirtualCubeDimension>
     <VirtualCubeDimension cubeName="Tweet" visible="true" highCardinality="false" name="Tempo">
     </VirtualCubeDimension>
-    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[Quantidade de likes]" visible="true">
+    <VirtualCubeDimension cubeName="Likes" visible="true" highCardinality="false" name="Informa&#231;&#245;es do tweet">
+    </VirtualCubeDimension>
+    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[Quantidade de likes]" visible="false">
     </VirtualCubeMeasure>
     <VirtualCubeMeasure cubeName="Likes" name="[Measures].[Quantidade de seguidores]" visible="true">
     </VirtualCubeMeasure>
     <VirtualCubeMeasure cubeName="Likes" name="[Measures].[Quantidade de seguidos]" visible="true">
     </VirtualCubeMeasure>
+    <CalculatedMember name="Quantidade de likes" formula="ValidMeasure ([Measures].[Quantidade de likes])" dimension="Measures" visible="true">
+    </CalculatedMember>
   </VirtualCube>
 </Schema>

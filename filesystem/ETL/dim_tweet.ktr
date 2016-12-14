@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>captura_seguidores</name>
+    <name>dim_tweet</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,14 +66,38 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;12&#x2f;06 12&#x3a;39&#x3a;11.881</created_date>
+  <created_date>2016&#x2f;12&#x2f;12 13&#x3a;51&#x3a;04.878</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;12&#x2f;06 12&#x3a;39&#x3a;11.881</modified_date>
+  <modified_date>2016&#x2f;12&#x2f;12 13&#x3a;51&#x3a;04.878</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>DW</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>projeto_dw</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb09ab7eca93a7d5</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>projeto</name>
     <server>localhost</server>
@@ -99,18 +123,12 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Extrair rea&#xe7;&#xf5;es profile</from><to>projeta 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modified Java Script Value 2</from><to>scrapping profile</to><enabled>Y</enabled> </hop>
-  <hop> <from>projeta 3</from><to>regex </to><enabled>Y</enabled> </hop>
-  <hop> <from>regex </from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>scrapping profile</from><to>Extrair rea&#xe7;&#xf5;es profile</to><enabled>Y</enabled> </hop>
-  <hop> <from>Table input</from><to>Modified Java Script Value 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Add sequence</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add sequence</from><to>Serialize to file</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Add sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add sequence</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Extrair rea&#xe7;&#xf5;es profile</name>
-    <type>UserDefinedJavaClass</type>
+    <name>Add sequence</name>
+    <type>Sequence</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -119,151 +137,20 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-
-    <definitions>
-        <definition>
-        <class_type>TRANSFORM_CLASS</class_type>
-
-        <class_name>Processor</class_name>
-
-        <class_source><![CDATA[
-public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws KettleException{
-	if (first){
-	  first = false;
-	}
-
-	Object[] r = getRow();
-
-	if (r == null) {
-	  setOutputDone();
-	  return false;
-	}
-
-    r = createOutputRow(r, data.outputRowMeta.size());
-
-    String html = get(Fields.In, "html_profile").getString(r);
-
-	jodd.jerry.Jerry doc = jodd.jerry.Jerry.jerry(html);
-    String lista = doc.$("div.ProfileNav").html();
-    
-    get(Fields.Out, "html_profile").setValue(r, "<lista>"+lista+"</lista>");
-
-
-    putRow(data.outputRowMeta, r);
-
-	return true;
-}
-]]></class_source>
-        </definition>
-    </definitions>
-    <fields>
-        <field>
-        <field_name> lista</field_name>
-
-        <field_type>String</field_type>
-
-        <field_length>-1</field_length>
-
-        <field_precision>-1</field_precision>
-
-        </field>
-    </fields><clear_result_fields>N</clear_result_fields>
-<info_steps></info_steps><target_steps></target_steps><usage_parameters></usage_parameters>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>624</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Modified Java Script Value 2</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var screen_name &#x3d; screen_name&#x3b;&#xd;&#xa;&#xd;&#xa;url_twitter &#x3d; &#x27;https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;&#x27;&#x3b;&#xd;&#xa;url &#x3d; url_twitter &#x2b; screen_name&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>screen_name</name>
-        <rename>screen_name</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>url</name>
-        <rename>url</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>screen_name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>following</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>followers</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>336</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Serialize to file</name>
-    <type>CubeOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <file>
-      <name>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;output&#x5c;seguidores_seguidos.cube</name>
-      <add_to_result_filenames>N</add_to_result_filenames>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-    </file>
+      <valuename>sk_tweet</valuename>
+      <use_database>N</use_database>
+      <connection/>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>640</xloc>
-      <yloc>432</yloc>
+      <xloc>304</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -280,7 +167,7 @@ public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws K
            <schema_name/>
            </partitioning>
     <connection>projeto</connection>
-    <sql>SELECT distinct&#xd;&#xa;  screen_name&#xd;&#xa;&#xd;&#xa;FROM captura_likes&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, tweet_texto&#xd;&#xa;, tipo_interacao&#xd;&#xa;&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -295,8 +182,8 @@ public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws K
     </step>
 
   <step>
-    <name>projeta 3</name>
-    <type>SelectValues</type>
+    <name>Table output</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -305,135 +192,29 @@ public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws K
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>screen_name</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>url</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>html_profile</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name> lista</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>regex </name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var regex &#x3d; html_profile.match&#x28;&#x2f;title&#x3d;&#x22;&#x5c;w&#x2a;&#x2f;g&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;for&#x28;x &#x3d; 0 &#x3b; x&#x3c; regex.length &#x3b; x&#x2b;&#x2b;&#x29;&#x7b;&#xd;&#xa;   regex&#x5b;x&#x5d; &#x3d; regex&#x5b;x&#x5d;.replace&#x28;&#x2f;title&#x3d;&#x22;&#x2f;g, &#x22;&#x22;&#x29;.replace&#x28;&#x27;&#x22;&#x27;, &#x27;&#x27;&#x29;&#x3b;&#xd;&#xa;    var following &#x3d; regex&#x5b;1&#x5d;&#x3b;&#xd;&#xa;    var followers &#x3d; regex&#x5b;2&#x5d;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;regex &#x3d; regex.join&#x28;&#x22;,&#x22;&#x29;&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>regex</name>
-        <rename>regex</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>following</name>
-        <rename>following</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>followers</name>
-        <rename>followers</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>scrapping profile</name>
-    <type>HTTP</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <url/>
-    <urlInField>Y</urlInField>
-    <urlField>url</urlField>
-    <encoding/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <socketTimeout>10000</socketTimeout>
-    <connectionTimeout>10000</connectionTimeout>
-    <closeIdleConnectionsTime>-1</closeIdleConnectionsTime>
-    <lookup>
-    </lookup>
-    <result>
-      <name>html_profile</name>
-      <code/>
-      <response_time/>
-    </result>
+    <connection>DW</connection>
+    <schema/>
+    <table>dim_tweet</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>480</xloc>
+      <xloc>448</xloc>
       <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Add sequence</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>id_screenname</valuename>
-      <use_database>N</use_database>
-      <connection/>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>432</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -30,6 +30,17 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<checkpoint-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<max_nr_retries/>
+<run_retry_period/>
+<namespace_parameter/>
+<save_parameters/>
+<save_result_rows/>
+<save_result_files/>
+<field><id>ID_JOB_RUN</id><enabled>Y</enabled><name>ID_JOB_RUN</name></field><field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>NAMESPACE</id><enabled>Y</enabled><name>NAMESPACE</name></field><field><id>CHECKPOINT_NAME</id><enabled>Y</enabled><name>CHECKPOINT_NAME</name></field><field><id>CHECKPOINT_COPYNR</id><enabled>Y</enabled><name>CHECKPOINT_COPYNR</name></field><field><id>ATTEMPT_NR</id><enabled>Y</enabled><name>ATTEMPT_NR</name></field><field><id>JOB_RUN_START_DATE</id><enabled>Y</enabled><name>JOB_RUN_START_DATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>RESULT_XML</id><enabled>Y</enabled><name>RESULT_XML</name></field><field><id>PARAMETER_XML</id><enabled>Y</enabled><name>PARAMETER_XML</name></field></checkpoint-log-table>
    <pass_batchid>N</pass_batchid>
    <shared_objects_file/>
   <entries>
@@ -50,107 +61,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>192</xloc>
+      <xloc>304</xloc>
       <yloc>96</yloc>
-      </entry>
-    <entry>
-      <name>DIM_HASHTAG</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;filesystem&#x5c;ETL&#x5c;dim_hashtag.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>96</yloc>
-      </entry>
-    <entry>
-      <name>DIM_MIDIA</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;filesystem&#x5c;ETL&#x5c;dim_midia.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>224</yloc>
-      </entry>
-    <entry>
-      <name>DIM_URL</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;ONCASEN07&#x5c;Documents&#x5c;Twitter&#x5c;filesystem&#x5c;ETL&#x5c;dim_url.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>224</yloc>
       </entry>
     <entry>
       <name>DIM_USUARIO</name>
@@ -182,7 +94,7 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
+      <xloc>544</xloc>
       <yloc>96</yloc>
       </entry>
     <entry>
@@ -287,42 +199,6 @@
   </entries>
   <hops>
     <hop>
-      <from>START</from>
-      <to>DIM_HASHTAG</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>DIM_HASHTAG</from>
-      <to>DIM_MIDIA</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>DIM_MIDIA</from>
-      <to>DIM_URL</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>DIM_URL</from>
-      <to>DIM_USUARIO</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>DIM_USUARIO</from>
       <to>DIM_USUARIO_MENCIONADO</to>
       <from_nr>0</from_nr>
@@ -348,6 +224,15 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>DIM_USUARIO</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
