@@ -167,7 +167,7 @@
            <schema_name/>
            </partitioning>
     <connection>projeto</connection>
-    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, tweet_texto&#xd;&#xa;, tipo_interacao&#xd;&#xa;&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, tweet_texto&#xd;&#xa;, hashtag&#xd;&#xa;, url_tweet&#xd;&#xa;, media&#xd;&#xa;, tipo_interacao&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

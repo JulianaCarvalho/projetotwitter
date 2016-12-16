@@ -9,6 +9,12 @@
       </Level>
       <Level name="Tipo de intera&#231;&#227;o" visible="true" column="tipo_interacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
+      <Level name="Midia" visible="true" column="media" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Hashtag" visible="true" column="hashtag" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Link" visible="true" column="url_tweet" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
     </Hierarchy>
   </Dimension>
   <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Usu&#225;rio">
@@ -108,7 +114,7 @@
     </VirtualCubeMeasure>
     <VirtualCubeMeasure cubeName="Likes" name="[Measures].[Quantidade de seguidos]" visible="true">
     </VirtualCubeMeasure>
-    <CalculatedMember name="Quantidade de likes" formula="ValidMeasure ([Measures].[Quantidade de likes])" dimension="Measures" visible="true">
+    <CalculatedMember name="Quantidade de Likes" formula="ValidMeasure ([Measures].[Quantidade de likes])" dimension="Measures" visible="true">
     </CalculatedMember>
   </VirtualCube>
 </Schema>
