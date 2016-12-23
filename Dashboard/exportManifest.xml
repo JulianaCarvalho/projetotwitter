@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="23-12-2016 04:22:36 GMT-03:00" exportBy="admin" rootFolder="/public/Twitter/" manifestVersion="2"/>
+    <ExportManifestEntity path="Dashboard">
+        <ExportManifestProperty>
+            <EntityMetaData name="Dashboard" createdDate="2016-12-14T10:02:00.383-03:00" isFolder="true" path="Dashboard" isHidden="false" locale="pt_BR" title="Dashboard"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/assets">
+        <ExportManifestProperty>
+            <EntityMetaData name="assets" createdDate="2016-12-14T10:27:21.072-03:00" isFolder="true" path="Dashboard/assets" isHidden="false" locale="pt_BR" title="assets"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/assets/css">
+        <ExportManifestProperty>
+            <EntityMetaData name="css" createdDate="2016-12-14T10:27:29.992-03:00" isFolder="true" path="Dashboard/assets/css" isHidden="false" locale="pt_BR" title="css"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/assets/css/global.css">
+        <ExportManifestProperty>
+            <EntityMetaData name="global.css" createdDate="2016-12-14T10:29:50.645-03:00" isFolder="false" path="Dashboard/assets/css/global.css" isHidden="false" locale="pt_BR" title="global.css"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/assets/img">
+        <ExportManifestProperty>
+            <EntityMetaData name="img" createdDate="2016-12-14T10:27:42.896-03:00" isFolder="true" path="Dashboard/assets/img" isHidden="false" locale="pt_BR" title="img"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/assets/js">
+        <ExportManifestProperty>
+            <EntityMetaData name="js" createdDate="2016-12-14T10:27:36.436-03:00" isFolder="true" path="Dashboard/assets/js" isHidden="false" locale="pt_BR" title="js"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/assets/js/helpers.js">
+        <ExportManifestProperty>
+            <EntityMetaData name="helpers.js" createdDate="2016-12-16T09:37:25.650-03:00" isFolder="false" path="Dashboard/assets/js/helpers.js" isHidden="false" locale="pt_BR" title="helpers.js"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/twitter.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="twitter.cda" createdDate="2016-12-15T10:58:34.551-03:00" isFolder="false" path="Dashboard/twitter.cda" isHidden="false" locale="pt_BR" title="twitter.cda"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/twitter.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="twitter.cdfde" createdDate="2016-12-14T10:13:07.080-03:00" isFolder="false" path="Dashboard/twitter.cdfde" isHidden="false" locale="pt_BR" title="twitter.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Dashboard/twitter.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="twitter.wcdf" createdDate="2016-12-14T10:13:06.750-03:00" isFolder="false" path="Dashboard/twitter.wcdf" isHidden="false" locale="pt_BR" description="Dashboard sobre o projeto Twitter." title="Twitter"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

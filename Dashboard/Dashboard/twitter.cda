@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="DStabela" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStempo_out" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStop3meses" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DSHashtagPercent" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DSLinkPercent" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DSMidiaPercent" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStweet" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DSqtd_char_likes_ret" type="sql.jndi">
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStop10user_mentions" type="sql.jndi">
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStop10tweets_maiscurtidos" type="sql.jndi">
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStop10user_likes" type="sql.jndi">
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStempo" type="sql.jndi">
+         <Jndi>DW</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="DStabela" id="DStabela" type="mdx">
+      <Name>DStabela</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="tweet" name="tweet" type="String"/>
+         <Parameter default="screen_name" name="scr" type="String"/>
+      </Parameters>
+      <Query><![CDATA[// Request ID: fb9f9a8c-c5f1-11e6-a437-bc773765912c - RUN_REPORT
+WITH
+SET [*NATIVE_CJ_SET_WITH_SLICER] AS 'FILTER([*BASE_MEMBERS__Informações do tweet_], NOT ISEMPTY ([Measures].[Quantidade de Likes]) OR NOT ISEMPTY ([Measures].[Quantidade de Retweets]))'
+SET [*NATIVE_CJ_SET] AS '[*NATIVE_CJ_SET_WITH_SLICER]'
+SET [*SORTED_ROW_AXIS] AS 'ORDER([*CJ_ROW_AXIS],[Informações do tweet].CURRENTMEMBER.ORDERKEY,BASC)'
+SET [*BASE_MEMBERS__Measures_] AS '{[Measures].[Quantidade de Likes],[Measures].[Quantidade de Retweets]}'
+SET [*BASE_MEMBERS__Informações do tweet_] AS '[Informações do tweet].[Texto do tweet].MEMBERS'
+SET [*CJ_ROW_AXIS] AS 'GENERATE([*NATIVE_CJ_SET], {([Informações do tweet].CURRENTMEMBER)})'
+SELECT
+[*BASE_MEMBERS__Measures_] ON COLUMNS
+,[*SORTED_ROW_AXIS] ON ROWS
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DStempo_out" id="DStempo_out" type="mdx">
+      <Name>DStempo_out</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+SET [~ROWS] AS
+    Hierarchize({{[Tempo].[Mes].Members}, {[Tempo].[Mes].Members}})
+SELECT
+NON EMPTY {[Measures].[Quantidade de tweets]} ON COLUMNS,
+NON EMPTY [~ROWS] ON ROWS
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DStop3meses" id="DStop3meses" type="mdx">
+      <Name>DStop3meses</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH SET [top3meses] as 'topcount([Tempo].[Mes].members, 4, [Measures].[Quantidade de tweets])'
+
+SELECT [Measures].[Quantidade de tweets] on 0,
+non empty [top3meses] on 1
+
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DSHashtagPercent" id="DSHashtagPercent" type="mdx">
+      <Name>DSHashtagPercent</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH 
+MEMBER [Measures].[Percentual] as
+SUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), 
+FORMAT_STRING = '###0.00%'
+
+SELECT
+{[Measures].[Quantidade de tweets],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,
+NON EMPTY [Tempo].[Tudo] ON 1
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DSLinkPercent" id="DSLinkPercent" type="mdx">
+      <Name>DSLinkPercent</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH 
+MEMBER [Measures].[Percentual] as
+SUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), 
+FORMAT_STRING = '###0.00%'
+
+SELECT
+{[Measures].[Quantidade de tweets],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,
+NON EMPTY [Tempo].[Tudo] ON 1
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DSMidiaPercent" id="DSMidiaPercent" type="mdx">
+      <Name>DSMidiaPercent</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Output indexes="0" mode="exclude"/>
+      <Parameters/>
+      <Query><![CDATA[WITH 
+MEMBER [Measures].[Percentual] as
+SUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), 
+FORMAT_STRING = '###0.00%'
+Member [Measures].[Nome] as  "Tweets que contém midia"
+SELECT
+{[Measures].[Nome],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,
+NON EMPTY head([Tempo].[Tudo],1) ON 1
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DStweet" id="DStweet" type="mdx">
+      <Name>DStweet</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[// Request ID: 97037e1c-c2e0-11e6-b366-bc773765912c - RUN_REPORT
+WITH
+SET [*NATIVE_CJ_SET_WITH_SLICER] AS 'FILTER([*BASE_MEMBERS__Informações do tweet_], NOT ISEMPTY ([Measures].[Quantidade de Likes]))'
+SET [*NATIVE_CJ_SET] AS '[*NATIVE_CJ_SET_WITH_SLICER]'
+SET [*SORTED_ROW_AXIS] AS 'ORDER([*CJ_ROW_AXIS],[Informações do tweet].CURRENTMEMBER.ORDERKEY,BASC)'
+SET [*BASE_MEMBERS__Measures_] AS '{[Measures].[Quantidade de Likes]}'
+SET [*BASE_MEMBERS__Informações do tweet_] AS '[Informações do tweet].[Texto do tweet].MEMBERS'
+SET [*CJ_ROW_AXIS] AS 'GENERATE([*NATIVE_CJ_SET], {([Informações do tweet].CURRENTMEMBER)})'
+SELECT
+[*BASE_MEMBERS__Measures_] ON COLUMNS
+,[*SORTED_ROW_AXIS] ON ROWS
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DSqtd_char_likes_ret" id="DSqtd_char_likes_ret"
+               type="sql">
+      <Name>DSqtd_char_likes_ret</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT 
+    ft.tweet_texto, char_length(ft.tweet_texto) as tamanho,
+    ft.likes_count as likes,
+    ft.retweeted_count as retweets
+FROM
+	fato_twitter ft
+INNER JOIN dim_usuario d on (ft.sk_usuario = d.sk_usuario)
+WHERE d.user_screen_name = 'oncase'
+ORDER BY ft.likes_count DESC
+LIMIT 10;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DStop10user_mentions" id="DStop10user_mentions"
+               type="sql">
+      <Name>DStop10user_mentions</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT 
+    dm.screen_name,
+    COUNT(dm.screen_name) AS "Numero De Vezes"
+FROM 
+	fato_twitter ft
+INNER JOIN dim_usuário_mencionado dm ON (ft.sk_usuario_mencionado = dm.sk_usuario_mencionado)
+GROUP BY 
+	dm.screen_name
+ORDER BY "Numero De Vezes" DESC
+LIMIT 10;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DStop10tweets_maiscurtidos"
+               id="DStop10tweets_maiscurtidos"
+               type="sql">
+      <Name>DStop10tweets_maiscurtidos</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT 
+    ft.tweet_texto,
+    ft.likes_count as likes,
+    ft.retweeted_count as retweets
+FROM
+	fato_twitter ft
+INNER JOIN dim_usuario d on (ft.sk_usuario = d.sk_usuario)
+WHERE d.user_screen_name = 'oncase'
+ORDER BY likes DESC
+LIMIT 10;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DStop10user_likes" id="DStop10user_likes"
+               type="sql">
+      <Name>DStop10user_likes</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select Screen_name, count(*) "Quantidade de likes"
+from fato_likes
+group by Screen_name
+order by "Quantidade de likes" DESC
+limit 10]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DStempo" id="DStempo" type="sql">
+      <Name>DStempo</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT DISTINCT (dt."Year") FROM dim_tempo dt
+INNER JOIN fato_twitter ftt ON (dt.sk_tempo = ftt.sk_tempo);]]></Query>
+   </DataAccess>
+</CDADescriptor>

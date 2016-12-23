@@ -22,7 +22,7 @@
       <Table name="dim_usuario" schema="public">
       </Table>
       <Level name="Nome" visible="true" column="user_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-        <Property name="C&#243;digo do usu&#225;rio" column="user_id" type="String">
+        <Property name="C&#243;digo do tweet" column="user_id" type="String">
         </Property>
       </Level>
       <Level name="Screen_name" visible="true" column="user_screen_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
@@ -88,6 +88,8 @@
     </Measure>
     <Measure name="Quantidade de seguidores" column="user_qtd_seguidores" datatype="Integer" aggregator="max" visible="true">
     </Measure>
+    <Measure name="qtd_media" column="media_count" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
   </Cube>
   <Cube name="Likes" visible="true" cache="true" enabled="true">
     <Table name="fato_likes" schema="public">
@@ -114,7 +116,15 @@
     </VirtualCubeMeasure>
     <VirtualCubeMeasure cubeName="Likes" name="[Measures].[Quantidade de seguidos]" visible="true">
     </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[Quantidade de tweets]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[Quantidade de retweets]" visible="false">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[qtd_media]" visible="true">
+    </VirtualCubeMeasure>
     <CalculatedMember name="Quantidade de Likes" formula="ValidMeasure ([Measures].[Quantidade de likes])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Quantidade de Retweets" formula="ValidMeasure ([Measures].[Quantidade de retweets])" dimension="Measures" visible="true">
     </CalculatedMember>
   </VirtualCube>
 </Schema>
