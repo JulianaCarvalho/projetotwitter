@@ -49,40 +49,6 @@
     "typeDesc": "<i>Group</i>"
    },
    {
-    "id": "7a0d864c-5a8b-0506-ed15-068689e73e8a",
-    "parent": "GENERIC",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "screen_name"
-     },
-     {
-      "name": "propertyValue",
-      "type": "String",
-      "value": "[User_likes].[tudo]"
-     },
-     {
-      "name": "parameterViewRole",
-      "type": "parameterViewRoleCustom",
-      "value": "unused"
-     },
-     {
-      "name": "bookmarkable",
-      "type": "Boolean",
-      "value": "false"
-     },
-     {
-      "name": "public",
-      "type": "Boolean",
-      "value": "false"
-     }
-    ],
-    "rowName": "Simple Parameter",
-    "type": "ComponentsParameter",
-    "typeDesc": "Simple parameter"
-   },
-   {
     "id": "82e6d321-3d39-b6a9-cacc-e7cc3b8dd3b3",
     "parent": "GENERIC",
     "properties": [
@@ -94,41 +60,7 @@
      {
       "name": "propertyValue",
       "type": "String",
-      "value": "[Tempo].children"
-     },
-     {
-      "name": "parameterViewRole",
-      "type": "parameterViewRoleCustom",
-      "value": "unused"
-     },
-     {
-      "name": "bookmarkable",
-      "type": "Boolean",
-      "value": "false"
-     },
-     {
-      "name": "public",
-      "type": "Boolean",
-      "value": "false"
-     }
-    ],
-    "rowName": "Simple Parameter",
-    "type": "ComponentsParameter",
-    "typeDesc": "Simple parameter"
-   },
-   {
-    "id": "e925925e-3e0d-3ee0-9534-6a2fa38abb9f",
-    "parent": "GENERIC",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "tweet"
-     },
-     {
-      "name": "propertyValue",
-      "type": "String",
-      "value": "[Informações do tweet].[tudo]"
+      "value": "[Tempo].[Tudo]"
      },
      {
       "name": "parameterViewRole",
@@ -181,7 +113,7 @@
      {
       "name": "listeners",
       "type": "Listeners",
-      "value": "[\"${p:tempo}\"]"
+      "value": "[]"
      },
      {
       "name": "parameters",
@@ -201,7 +133,7 @@
      {
       "name": "dataSource",
       "type": "Datasource",
-      "value": "DStempo"
+      "value": "DStempoo"
      },
      {
       "name": "valuesArray",
@@ -7310,581 +7242,581 @@
    {
     "id": "OTHERCOMPONENTS",
     "name": "Others",
-    "type": "Label",
-    "typeDesc": "<i>Group</i>",
     "parent": "UnIqEiD",
     "properties": [
      {
       "name": "Group",
-      "value": "Others",
-      "type": "Label"
+      "type": "Label",
+      "value": "Others"
      }
-    ]
+    ],
+    "type": "Label",
+    "typeDesc": "<i>Group</i>"
    },
    {
     "id": "4d33443d-633e-e57f-7822-08c105568a74",
-    "type": "ComponentsTable",
-    "typeDesc": "table Component",
     "parent": "OTHERCOMPONENTS",
     "properties": [
      {
       "name": "name",
-      "value": "TabelaTweet",
-      "type": "Id"
+      "type": "Id",
+      "value": "TabelaTweet"
      },
      {
       "name": "expandContainerObject",
-      "value": "",
-      "type": "HtmlTarget"
+      "type": "HtmlTarget",
+      "value": ""
      },
      {
       "name": "listeners",
-      "value": "[]",
-      "type": "Listeners"
+      "type": "Listeners",
+      "value": "[]"
      },
      {
       "name": "oLanguage",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "language",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "colFormats",
-      "value": "[]",
-      "type": "ColFormatsArray"
+      "type": "ColFormatsArray",
+      "value": "[]"
      },
      {
       "name": "colHeaders",
-      "value": "[]",
-      "type": "ColHeadersArray"
+      "type": "ColHeadersArray",
+      "value": "[]"
      },
      {
       "name": "colSortable",
-      "value": "[]",
-      "type": "ColSortableArray"
+      "type": "ColSortableArray",
+      "value": "[]"
      },
      {
       "name": "colTypes",
-      "value": "[]",
-      "type": "colTypesCustom"
+      "type": "colTypesCustom",
+      "value": "[]"
      },
      {
       "name": "colWidths",
-      "value": "[]",
-      "type": "ColWidthsArray"
+      "type": "ColWidthsArray",
+      "value": "[]"
      },
      {
       "name": "expandParameters",
-      "value": "[]",
-      "type": "ExpandParameters"
+      "type": "ExpandParameters",
+      "value": "[]"
      },
      {
       "name": "parameters",
-      "value": "[]",
-      "type": "ValuesArray"
+      "type": "ValuesArray",
+      "value": "[]"
      },
      {
       "name": "displayLength",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "expandOnClick",
-      "value": "false",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "false"
      },
      {
       "name": "filter",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "info",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "lengthChange",
-      "value": "false",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "false"
      },
      {
       "name": "paginate",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "sort",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "colSearchable",
-      "value": "[]",
-      "type": "ColSearchableArray"
+      "type": "ColSearchableArray",
+      "value": "[]"
      },
      {
       "name": "drawCallback",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "dataSource",
-      "value": "DStabela",
-      "type": "Datasource"
+      "type": "Datasource",
+      "value": "DStabela"
      },
      {
       "name": "sDom",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "sortBy",
-      "value": "[]",
-      "type": "SortByArray"
+      "type": "SortByArray",
+      "value": "[]"
      },
      {
       "name": "priority",
-      "value": 5,
-      "type": "Integer"
+      "type": "Integer",
+      "value": 5
      },
      {
       "name": "refreshPeriod",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "paginationType",
-      "value": "simple_numbers",
-      "type": "PaginationType"
+      "type": "PaginationType",
+      "value": "simple_numbers"
      },
      {
       "name": "tableStyle",
-      "value": "bootstrap",
-      "type": "TableStyle"
+      "type": "TableStyle",
+      "value": "bootstrap"
      },
      {
       "name": "htmlObject",
-      "value": "${h:TabelaElm}",
-      "type": "HtmlObject"
+      "type": "HtmlObject",
+      "value": "${h:TabelaElm}"
      },
      {
       "name": "executeAtStart",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "paginateServerside",
-      "value": "false",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "false"
      },
      {
       "name": "failureCallback",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "preExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postFetch",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "preChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "extraOptions",
-      "value": "[]",
-      "type": "ExtraOptionsArray"
+      "type": "ExtraOptionsArray",
+      "value": "[]"
      },
      {
       "name": "tooltip",
-      "value": "",
-      "type": "Html"
+      "type": "Html",
+      "value": ""
      },
      {
       "name": "clickAction",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      }
     ],
-    "rowName": "Table Component"
+    "rowName": "Table Component",
+    "type": "ComponentsTable",
+    "typeDesc": "table Component"
    },
    {
     "id": "e61334bf-f7d7-b18f-406f-07b49ad792f5",
-    "type": "ComponentsQuery",
-    "typeDesc": "Query Component",
     "parent": "OTHERCOMPONENTS",
     "properties": [
      {
       "name": "name",
-      "value": "KPI04",
-      "type": "Id"
+      "type": "Id",
+      "value": "KPI04"
      },
      {
       "name": "listeners",
-      "value": "[]",
-      "type": "Listeners"
+      "type": "Listeners",
+      "value": "[]"
      },
      {
       "name": "parameters",
-      "value": "[]",
-      "type": "ValuesArray"
+      "type": "ValuesArray",
+      "value": "[]"
      },
      {
       "name": "resultvar",
-      "value": "",
-      "type": "Result"
+      "type": "Result",
+      "value": ""
      },
      {
       "name": "dataSource",
-      "value": "DSMidiaPercent",
-      "type": "Datasource"
+      "type": "Datasource",
+      "value": "DSRTPercent"
      },
      {
       "name": "asynchronousMode",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "priority",
-      "value": "5",
-      "type": "Integer"
+      "type": "Integer",
+      "value": "5"
      },
      {
       "name": "refreshPeriod",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "htmlObject",
-      "value": "${h:KPI04_resultado}",
-      "type": "HtmlObject"
+      "type": "HtmlObject",
+      "value": "${h:KPI04_resultado}"
      },
      {
       "name": "executeAtStart",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "preExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postFetch",
-      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} ",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} "
      },
      {
       "name": "preChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "tooltip",
-      "value": "",
-      "type": "Html"
+      "type": "Html",
+      "value": ""
      }
     ],
-    "rowName": "Query Component"
+    "rowName": "Query Component",
+    "type": "ComponentsQuery",
+    "typeDesc": "Query Component"
    },
    {
     "id": "685757c9-4703-d03c-6e94-425a37e8ddaa",
-    "type": "ComponentsQuery",
-    "typeDesc": "Query Component",
     "parent": "OTHERCOMPONENTS",
     "properties": [
      {
       "name": "name",
-      "value": "KPI03",
-      "type": "Id"
+      "type": "Id",
+      "value": "KPI03"
      },
      {
       "name": "listeners",
-      "value": "[]",
-      "type": "Listeners"
+      "type": "Listeners",
+      "value": "[]"
      },
      {
       "name": "parameters",
-      "value": "[]",
-      "type": "ValuesArray"
+      "type": "ValuesArray",
+      "value": "[]"
      },
      {
       "name": "resultvar",
-      "value": "",
-      "type": "Result"
+      "type": "Result",
+      "value": ""
      },
      {
       "name": "dataSource",
-      "value": "DSMidiaPercent",
-      "type": "Datasource"
+      "type": "Datasource",
+      "value": "DSLinkPercent"
      },
      {
       "name": "asynchronousMode",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "priority",
-      "value": "5",
-      "type": "Integer"
+      "type": "Integer",
+      "value": "5"
      },
      {
       "name": "refreshPeriod",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "htmlObject",
-      "value": "${h:KPI03_resultado}",
-      "type": "HtmlObject"
+      "type": "HtmlObject",
+      "value": "${h:KPI03_resultado}"
      },
      {
       "name": "executeAtStart",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "preExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postFetch",
-      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} ",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} "
      },
      {
       "name": "preChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "tooltip",
-      "value": "",
-      "type": "Html"
+      "type": "Html",
+      "value": ""
      }
     ],
-    "rowName": "Query Component"
+    "rowName": "Query Component",
+    "type": "ComponentsQuery",
+    "typeDesc": "Query Component"
    },
    {
     "id": "a35803f8-628a-e525-b131-0030b204e6c1",
-    "type": "ComponentsQuery",
-    "typeDesc": "Query Component",
     "parent": "OTHERCOMPONENTS",
     "properties": [
      {
       "name": "name",
-      "value": "KPI02",
-      "type": "Id"
+      "type": "Id",
+      "value": "KPI02"
      },
      {
       "name": "listeners",
-      "value": "[]",
-      "type": "Listeners"
+      "type": "Listeners",
+      "value": "[]"
      },
      {
       "name": "parameters",
-      "value": "[]",
-      "type": "ValuesArray"
+      "type": "ValuesArray",
+      "value": "[]"
      },
      {
       "name": "resultvar",
-      "value": "",
-      "type": "Result"
+      "type": "Result",
+      "value": ""
      },
      {
       "name": "dataSource",
-      "value": "DSMidiaPercent",
-      "type": "Datasource"
+      "type": "Datasource",
+      "value": "DSHashtagPercent"
      },
      {
       "name": "asynchronousMode",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "priority",
-      "value": "5",
-      "type": "Integer"
+      "type": "Integer",
+      "value": "5"
      },
      {
       "name": "refreshPeriod",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "htmlObject",
-      "value": "${h:KPI02_resultado}",
-      "type": "HtmlObject"
+      "type": "HtmlObject",
+      "value": "${h:KPI02_resultado}"
      },
      {
       "name": "executeAtStart",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "preExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postFetch",
-      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} ",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} "
      },
      {
       "name": "preChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "tooltip",
-      "value": "",
-      "type": "Html"
+      "type": "Html",
+      "value": ""
      }
     ],
-    "rowName": "Query Component"
+    "rowName": "Query Component",
+    "type": "ComponentsQuery",
+    "typeDesc": "Query Component"
    },
    {
     "id": "52c3056b-bf25-de6a-1796-1f887d277d3c",
-    "type": "ComponentsQuery",
-    "typeDesc": "Query Component",
     "parent": "OTHERCOMPONENTS",
     "properties": [
      {
       "name": "name",
-      "value": "KPI01",
-      "type": "Id"
+      "type": "Id",
+      "value": "KPI01"
      },
      {
       "name": "listeners",
-      "value": "[]",
-      "type": "Listeners"
+      "type": "Listeners",
+      "value": "[]"
      },
      {
       "name": "parameters",
-      "value": "[]",
-      "type": "ValuesArray"
+      "type": "ValuesArray",
+      "value": "[]"
      },
      {
       "name": "resultvar",
-      "value": "",
-      "type": "Result"
+      "type": "Result",
+      "value": ""
      },
      {
       "name": "dataSource",
-      "value": "DSMidiaPercent",
-      "type": "Datasource"
+      "type": "Datasource",
+      "value": "DSMidiaPercent"
      },
      {
       "name": "asynchronousMode",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "priority",
-      "value": "5",
-      "type": "Integer"
+      "type": "Integer",
+      "value": "5"
      },
      {
       "name": "refreshPeriod",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "htmlObject",
-      "value": "${h:KPI01_resultado}",
-      "type": "HtmlObject"
+      "type": "HtmlObject",
+      "value": "${h:KPI01_resultado}"
      },
      {
       "name": "executeAtStart",
-      "value": "true",
-      "type": "Boolean"
+      "type": "Boolean",
+      "value": "true"
      },
      {
       "name": "preExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postExecution",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postFetch",
-      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} ",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": "function(cda){\r\n \r\n   /*\r\n       Va no console e olhe esses dois objetos.\r\n       Nao deixe isso em producao, pois pode ser custoso.\r\n    */\r\n   console.log(cda);\r\n   console.log(this);\r\n \r\n   imprimeKPI(this, cda)\r\n} "
      },
      {
       "name": "preChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "postChange",
-      "value": "",
-      "type": "JavaScript"
+      "type": "JavaScript",
+      "value": ""
      },
      {
       "name": "tooltip",
-      "value": "",
-      "type": "Html"
+      "type": "Html",
+      "value": ""
      }
     ],
-    "rowName": "Query Component"
+    "rowName": "Query Component",
+    "type": "ComponentsQuery",
+    "typeDesc": "Query Component"
    }
   ]
  },
@@ -7987,6 +7919,88 @@
     "typeDesc": "mdx over mondrianJndi"
    },
    {
+    "id": "60f59d1a-d5ae-0ef3-f405-e810d9ed9e07",
+    "meta": "CDA",
+    "meta_conntype": "mondrian.jndi",
+    "meta_datype": "mdx",
+    "parent": "MDX",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "DStempoo"
+     },
+     {
+      "name": "access",
+      "type": "Access",
+      "value": "public"
+     },
+     {
+      "name": "jndi",
+      "type": "Jndi",
+      "value": "DW"
+     },
+     {
+      "name": "catalog",
+      "type": "MondrianCatalog",
+      "value": "mondrian:/Twitter"
+     },
+     {
+      "name": "query",
+      "type": "CurrentMdxQuery",
+      "value": "with member\r\n   [Measures].[uniqueName] as [Tempo].currentMember.uniqueName\r\nselect\r\n[Measures].[uniqueName] on 0,\r\nunion(\r\n    [Tempo].[Tudo],\r\n    filter(\r\n    [Tempo].children,\r\n    [Tempo].currentmember.name=\"2015\" or [Tempo].currentmember.name=\"2016\" or\r\n    [Tempo].currentmember.name=\"2017\"\r\n)\r\n)  on 1\r\n\r\nfrom [Tweet x Likes]\r\n\r\n"
+     },
+     {
+      "name": "parameters",
+      "type": "CdaParameters",
+      "value": "[]"
+     },
+     {
+      "name": "bandedMode",
+      "type": "BandedMode",
+      "value": "compact"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "type": "CdaCalculatedColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "cdacolumns",
+      "type": "CdaColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "output",
+      "type": "IndexArray",
+      "value": "[\"1\",\"0\"]"
+     },
+     {
+      "name": "outputMode",
+      "type": "OutputMode",
+      "value": "include"
+     },
+     {
+      "name": "cacheKeys",
+      "type": "CacheKeysValues",
+      "value": "[]"
+     },
+     {
+      "name": "cacheDuration",
+      "type": "Integer",
+      "value": 3600
+     },
+     {
+      "name": "cache",
+      "type": "Boolean",
+      "value": "true"
+     }
+    ],
+    "rowName": "mdx over mondrianJndi",
+    "type": "Componentsmdx_mondrianJndi",
+    "typeDesc": "mdx over mondrianJndi"
+   },
+   {
     "id": "7b20eb52-d8be-89f6-77c6-623f3bb8f051",
     "meta": "CDA",
     "meta_conntype": "mondrian.jndi",
@@ -8021,7 +8035,7 @@
      {
       "name": "parameters",
       "type": "CdaParameters",
-      "value": "[]"
+      "value": "[[\"tempo\",\"[Tempo].[Tudo]\",\"String\",\"\",\"\"]]"
      },
      {
       "name": "bandedMode",
@@ -8151,89 +8165,7 @@
     "typeDesc": "mdx over mondrianJndi"
    },
    {
-    "id": "6641fe66-6753-cc07-23f3-ae867aa39b0a",
-    "meta": "CDA",
-    "meta_conntype": "mondrian.jndi",
-    "meta_datype": "mdx",
-    "parent": "MDX",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "DSHashtagPercent"
-     },
-     {
-      "name": "access",
-      "type": "Access",
-      "value": "public"
-     },
-     {
-      "name": "jndi",
-      "type": "Jndi",
-      "value": "DW"
-     },
-     {
-      "name": "catalog",
-      "type": "MondrianCatalog",
-      "value": "mondrian:/Twitter"
-     },
-     {
-      "name": "query",
-      "type": "CurrentMdxQuery",
-      "value": "WITH \r\nMEMBER [Measures].[Percentual] as\r\nSUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), \r\nFORMAT_STRING = '###0.00%'\r\n\r\nSELECT\r\n{[Measures].[Quantidade de tweets],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,\r\nNON EMPTY [Tempo].[Tudo] ON 1\r\nFROM [Tweet x Likes]"
-     },
-     {
-      "name": "parameters",
-      "type": "CdaParameters",
-      "value": "[]"
-     },
-     {
-      "name": "bandedMode",
-      "type": "BandedMode",
-      "value": "compact"
-     },
-     {
-      "name": "cdacalculatedcolumns",
-      "type": "CdaCalculatedColumnsArray",
-      "value": "[]"
-     },
-     {
-      "name": "cdacolumns",
-      "type": "CdaColumnsArray",
-      "value": "[]"
-     },
-     {
-      "name": "output",
-      "type": "IndexArray",
-      "value": "[]"
-     },
-     {
-      "name": "outputMode",
-      "type": "OutputMode",
-      "value": "include"
-     },
-     {
-      "name": "cacheKeys",
-      "type": "CacheKeysValues",
-      "value": "[]"
-     },
-     {
-      "name": "cacheDuration",
-      "type": "Integer",
-      "value": 3600
-     },
-     {
-      "name": "cache",
-      "type": "Boolean",
-      "value": "true"
-     }
-    ],
-    "rowName": "mdx over mondrianJndi",
-    "type": "Componentsmdx_mondrianJndi",
-    "typeDesc": "mdx over mondrianJndi"
-   },
-   {
-    "id": "d31f4b21-540c-e593-9b29-9ce93d340476",
+    "id": "19071d6a-fd2b-4d95-95b0-b68d374d49b2",
     "meta": "CDA",
     "meta_conntype": "mondrian.jndi",
     "meta_datype": "mdx",
@@ -8262,12 +8194,12 @@
      {
       "name": "query",
       "type": "CurrentMdxQuery",
-      "value": "WITH \r\nMEMBER [Measures].[Percentual] as\r\nSUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), \r\nFORMAT_STRING = '###0.00%'\r\n\r\nSELECT\r\n{[Measures].[Quantidade de tweets],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,\r\nNON EMPTY [Tempo].[Tudo] ON 1\r\nFROM [Tweet x Likes]"
+      "value": "WITH \r\nMEMBER [Measures].[Percentual] as\r\nSUM([Measures].[qtd_link])/ SUM([Measures].[Quantidade de tweets]), \r\nFORMAT_STRING = '###0.00%'\r\nMember [Measures].[Nome] as  \"Tweets que contém link\"\r\nSELECT\r\n{[Measures].[Nome],[Measures].[qtd_link], [Measures].[Percentual]} ON 0,\r\nNON EMPTY head([Tempo].[Tudo],1) ON 1\r\nFROM [Tweet x Likes]"
      },
      {
       "name": "parameters",
       "type": "CdaParameters",
-      "value": "[]"
+      "value": "[[\"tempo\",\"[Tempo].[Tudo]\",\"String\",\"\",\"\"]]"
      },
      {
       "name": "bandedMode",
@@ -8287,12 +8219,176 @@
      {
       "name": "output",
       "type": "IndexArray",
-      "value": "[]"
+      "value": "[\"0\"]"
      },
      {
       "name": "outputMode",
       "type": "OutputMode",
-      "value": "include"
+      "value": "exclude"
+     },
+     {
+      "name": "cacheKeys",
+      "type": "CacheKeysValues",
+      "value": "[]"
+     },
+     {
+      "name": "cacheDuration",
+      "type": "Integer",
+      "value": 3600
+     },
+     {
+      "name": "cache",
+      "type": "Boolean",
+      "value": "true"
+     }
+    ],
+    "rowName": "mdx over mondrianJndi",
+    "type": "Componentsmdx_mondrianJndi",
+    "typeDesc": "mdx over mondrianJndi"
+   },
+   {
+    "id": "7108cf25-e673-25c2-5022-871a9f5abf9f",
+    "meta": "CDA",
+    "meta_conntype": "mondrian.jndi",
+    "meta_datype": "mdx",
+    "parent": "MDX",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "DSHashtagPercent"
+     },
+     {
+      "name": "access",
+      "type": "Access",
+      "value": "public"
+     },
+     {
+      "name": "jndi",
+      "type": "Jndi",
+      "value": "DW"
+     },
+     {
+      "name": "catalog",
+      "type": "MondrianCatalog",
+      "value": "mondrian:/Twitter"
+     },
+     {
+      "name": "query",
+      "type": "CurrentMdxQuery",
+      "value": "WITH \r\nMEMBER [Measures].[Percentual] as\r\nSUM([Measures].[qtd_hashtag])/ SUM([Measures].[Quantidade de tweets]), \r\nFORMAT_STRING = '###0.00%'\r\nMember [Measures].[Nome] as  \"Tweets que contém hashtag\"\r\nSELECT\r\n{[Measures].[Nome],[Measures].[qtd_hashtag], [Measures].[Percentual]} ON 0,\r\nNON EMPTY head([Tempo].[Tudo],1) ON 1\r\nFROM [Tweet x Likes]"
+     },
+     {
+      "name": "parameters",
+      "type": "CdaParameters",
+      "value": "[[\"tempo\",\"[Tempo].[Tudo]\",\"String\",\"\",\"\"]]"
+     },
+     {
+      "name": "bandedMode",
+      "type": "BandedMode",
+      "value": "compact"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "type": "CdaCalculatedColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "cdacolumns",
+      "type": "CdaColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "output",
+      "type": "IndexArray",
+      "value": "[\"0\"]"
+     },
+     {
+      "name": "outputMode",
+      "type": "OutputMode",
+      "value": "exclude"
+     },
+     {
+      "name": "cacheKeys",
+      "type": "CacheKeysValues",
+      "value": "[]"
+     },
+     {
+      "name": "cacheDuration",
+      "type": "Integer",
+      "value": 3600
+     },
+     {
+      "name": "cache",
+      "type": "Boolean",
+      "value": "true"
+     }
+    ],
+    "rowName": "mdx over mondrianJndi",
+    "type": "Componentsmdx_mondrianJndi",
+    "typeDesc": "mdx over mondrianJndi"
+   },
+   {
+    "id": "eb301f49-5ab8-8099-1254-af7088619af5",
+    "meta": "CDA",
+    "meta_conntype": "mondrian.jndi",
+    "meta_datype": "mdx",
+    "parent": "MDX",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "DSRTPercent"
+     },
+     {
+      "name": "access",
+      "type": "Access",
+      "value": "public"
+     },
+     {
+      "name": "jndi",
+      "type": "Jndi",
+      "value": "DW"
+     },
+     {
+      "name": "catalog",
+      "type": "MondrianCatalog",
+      "value": "mondrian:/Twitter"
+     },
+     {
+      "name": "query",
+      "type": "CurrentMdxQuery",
+      "value": "WITH \r\nMEMBER [Measures].[Percentual] as\r\nSUM([Measures].[qtd_rt])/ SUM([Measures].[Quantidade de tweets]), \r\nFORMAT_STRING = '###0.00%'\r\nMember [Measures].[Nome] as  \"Tweets são RT\"\r\nSELECT\r\n{[Measures].[Nome],[Measures].[qtd_rt], [Measures].[Percentual]} ON 0,\r\nNON EMPTY head([Tempo].[Tudo],1) ON 1\r\nFROM [Tweet x Likes]"
+     },
+     {
+      "name": "parameters",
+      "type": "CdaParameters",
+      "value": "[[\"tempo\",\"[Tempo].[Tudo]\",\"String\",\"\",\"\"]]"
+     },
+     {
+      "name": "bandedMode",
+      "type": "BandedMode",
+      "value": "compact"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "type": "CdaCalculatedColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "cdacolumns",
+      "type": "CdaColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "output",
+      "type": "IndexArray",
+      "value": "[\"0\"]"
+     },
+     {
+      "name": "outputMode",
+      "type": "OutputMode",
+      "value": "exclude"
      },
      {
       "name": "cacheKeys",
@@ -8344,12 +8440,12 @@
      {
       "name": "query",
       "type": "CurrentMdxQuery",
-      "value": "WITH \r\nMEMBER [Measures].[Percentual] as\r\nSUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), \r\nFORMAT_STRING = '###0.00%'\r\nMember [Measures].[Nome] as  \"Tweets que contém midia\"\r\nSELECT\r\n{[Measures].[Nome],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,\r\nNON EMPTY head([Tempo].[Tudo],1) ON 1\r\nFROM [Tweet x Likes]"
+      "value": "WITH \r\nMEMBER [Measures].[Percentual] as\r\nSUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), \r\nFORMAT_STRING = '###0.00%'\r\nMember [Measures].[Nome] as  \"Tweets que contém midia\"\r\nSELECT\r\n{[Measures].[Nome],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,\r\nNON EMPTY head([Tempo].[Tudo],1) ON 1\r\nFROM [Tweet x Likes]\r\n"
      },
      {
       "name": "parameters",
       "type": "CdaParameters",
-      "value": "[]"
+      "value": "[[\"tempo\",\"[Tempo].[Tudo]\",\"String\",\"\",\"\"]]"
      },
      {
       "name": "bandedMode",
@@ -8935,7 +9031,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": "imp-header imp-cinza-claro-bg"
+      "value": "imp-header imp-azul-claro-bg"
      }
     ],
     "type": "LayoutRow",
@@ -9016,7 +9112,7 @@
      {
       "name": "html",
       "type": "Html",
-      "value": "<h1 class=\"imp-titulo01\">\r\n  <span class=\"glyphicon glyphicon-fire imp-red\" aria-hidden=\"true\"></span>\r\n  Painel do Twitter\r\n</h1> "
+      "value": "<h1 class=\"imp-titulo01\">\r\n  <span class=\"fa fa-twitter-square imp-blue\" aria-hidden=\"true\"></span>\r\n  \r\n      Analytics\r\n  </h1> "
      },
      {
       "name": "fontSize",
@@ -9347,7 +9443,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": "fa fa-user imp-icone-kpi"
+      "value": "fa fa-picture-o imp-icone-kpi"
      },
      {
       "name": "elementTag",
@@ -9539,7 +9635,7 @@
      {
       "name": "html",
       "type": "Html",
-      "value": "<small>Tweets publicados pela ONCASE</small> \n "
+      "value": "<small> Quantidade de tweets que contém mídia </small> "
      },
      {
       "name": "fontSize",
@@ -9554,7 +9650,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": ""
+      "value": "testev"
      }
     ],
     "type": "LayoutHtml",
@@ -9736,7 +9832,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": "fa fa-heart imp-icone-kpi"
+      "value": "fa fa-hashtag imp-icone-kpi"
      },
      {
       "name": "elementTag",
@@ -9928,7 +10024,7 @@
      {
       "name": "html",
       "type": "Html",
-      "value": "<small>Quantidade de likes do tweet</small> \n "
+      "value": "<small>Quantidade de tweets que contém hashtag</small>  "
      },
      {
       "name": "fontSize",
@@ -9943,7 +10039,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": ""
+      "value": "testev"
      }
     ],
     "type": "LayoutHtml",
@@ -10125,7 +10221,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": "fa fa-retweet  imp-icone-kpi"
+      "value": "fa fa-external-link imp-icone-kpi"
      },
      {
       "name": "elementTag",
@@ -10317,7 +10413,7 @@
      {
       "name": "html",
       "type": "Html",
-      "value": "<small>Quantidade de retweets</small> \n "
+      "value": "<small>Quantidade de tweets que contém link</small> \n "
      },
      {
       "name": "fontSize",
@@ -10332,7 +10428,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": ""
+      "value": "testev"
      }
     ],
     "type": "LayoutHtml",
@@ -10706,7 +10802,7 @@
      {
       "name": "html",
       "type": "Html",
-      "value": "<small>Quantidade de retweets</small> \n "
+      "value": "<small>Tweets publicados pela oncase que são RT</small> \n "
      },
      {
       "name": "fontSize",
@@ -10721,7 +10817,7 @@
      {
       "name": "cssClass",
       "type": "String",
-      "value": ""
+      "value": "testev"
      }
     ],
     "type": "LayoutHtml",
@@ -11001,516 +11097,8 @@
     "typeDesc": "Row"
    },
    {
-    "id": "286d20d8-e8f4-9b00-ebb7-c8c3df362a20",
-    "parent": "74484ac3-8784-c2b3-a90d-13ae8d9afeff",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ColEstadosBarras_new_new"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": "4"
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-branco-bg imp-graficos-coluna imp-margem-vertical"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "a966e1d4-6dfc-0049-1202-43e320a2d0cb",
-    "parent": "286d20d8-e8f4-9b00-ebb7-c8c3df362a20",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "e53c1f6d-2f08-3447-cbbc-c866931d670a",
-    "parent": "a966e1d4-6dfc-0049-1202-43e320a2d0cb",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerGrafico01"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo-grafico-container"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "63b7cb6a-2c59-d098-73f5-07df1f9f07b3",
-    "parent": "e53c1f6d-2f08-3447-cbbc-c866931d670a",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "TituloGrafico01"
-     },
-     {
-      "name": "html",
-      "type": "Html",
-      "value": "Épocas do ano mais ativas "
-     },
-     {
-      "name": "fontSize",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "color",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo"
-     }
-    ],
-    "type": "LayoutHtml",
-    "typeDesc": "Html"
-   },
-   {
-    "id": "51a077e7-05a6-08d9-a10e-6da1eb6f6da8",
-    "parent": "286d20d8-e8f4-9b00-ebb7-c8c3df362a20",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerEstadosBarras_new_new"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "35a2f86a-8a8b-d1f0-c5d3-405f816ca7f7",
-    "parent": "UnIqEiD",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "GraficosSecundarios"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "94060449-69f8-9699-d32f-59b4fcf5509f",
-    "parent": "35a2f86a-8a8b-d1f0-c5d3-405f816ca7f7",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ColRegioesBarras_new"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": "8"
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-branco-bg imp-graficos-coluna imp-margem-vertical"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "3f0bbd89-548e-d7ce-681f-8614571c037c",
-    "parent": "94060449-69f8-9699-d32f-59b4fcf5509f",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "b214a221-2765-f264-4bed-525f09f0993d",
-    "parent": "3f0bbd89-548e-d7ce-681f-8614571c037c",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerTituloRegioesBarras_new"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo-grafico-container"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "857da7f7-2dab-c0ad-2531-1a0bd8cef543",
-    "parent": "b214a221-2765-f264-4bed-525f09f0993d",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "TituloRegioesBarras_new"
-     },
-     {
-      "name": "html",
-      "type": "Html",
-      "value": " Rela&#xE7;&#xE3;o entre tamanho do tweet - Likes - Retweets\r\n<br>\r\n<span class=\"imp-subtitulo\">\r\n Observe como foi a rela&#xE7;&#xE3;o da quantidade de curtidas e retweets por tamanho do tweet.\r\n</span> "
-     },
-     {
-      "name": "fontSize",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "color",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo"
-     }
-    ],
-    "type": "LayoutHtml",
-    "typeDesc": "Html"
-   },
-   {
-    "id": "3e0c7ae6-8c58-fc1c-e73a-754f55a6fbb3",
-    "parent": "94060449-69f8-9699-d32f-59b4fcf5509f",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerRegioesBarras_new"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
     "id": "4913c56c-c07c-31fc-d4ca-4d23c7398d94",
-    "parent": "35a2f86a-8a8b-d1f0-c5d3-405f816ca7f7",
+    "parent": "74484ac3-8784-c2b3-a90d-13ae8d9afeff",
     "properties": [
      {
       "name": "name",
@@ -11744,575 +11332,105 @@
     "typeDesc": "Row"
    },
    {
-    "id": "d2efa5e0-321c-4b85-14e8-05aa70d06741",
-    "parent": "35a2f86a-8a8b-d1f0-c5d3-405f816ca7f7",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ColGrafico02"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": "4"
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-branco-bg imp-graficos-coluna imp-margem-vertical"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "56aebd14-2f8b-1bf1-5f67-a86c904bf325",
-    "parent": "d2efa5e0-321c-4b85-14e8-05aa70d06741",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "460c3afc-2f79-0364-dc8f-fc108922574a",
-    "parent": "56aebd14-2f8b-1bf1-5f67-a86c904bf325",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerGrafico02"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo-grafico-container"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "b5436573-3455-3f46-46fc-d5e1cc4d594b",
-    "parent": "460c3afc-2f79-0364-dc8f-fc108922574a",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "TituloGrafico02"
-     },
-     {
-      "name": "html",
-      "type": "Html",
-      "value": "TOP 10 Usuários mencionados "
-     },
-     {
-      "name": "fontSize",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "color",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo"
-     }
-    ],
-    "type": "LayoutHtml",
-    "typeDesc": "Html"
-   },
-   {
-    "id": "e91bb330-b8c9-7df4-5f96-9098f5bf54bf",
-    "parent": "d2efa5e0-321c-4b85-14e8-05aa70d06741",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerEstadosBarras_new_new_new"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "00f5c937-5fdc-e550-643b-ae0d69b11cf5",
-    "parent": "35a2f86a-8a8b-d1f0-c5d3-405f816ca7f7",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ColGrafico03"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": "4"
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-branco-bg imp-graficos-coluna imp-margem-vertical"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "594b94f1-78e8-2832-82ec-3bf2670485ba",
-    "parent": "00f5c937-5fdc-e550-643b-ae0d69b11cf5",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "4e1110b1-6c3c-d7db-367b-94499c632ae8",
-    "parent": "594b94f1-78e8-2832-82ec-3bf2670485ba",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerGrafico03"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo-grafico-container"
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "8e06fae1-fd4c-c772-b6a5-d0e90c29b622",
-    "parent": "4e1110b1-6c3c-d7db-367b-94499c632ae8",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "TituloGrafico03"
-     },
-     {
-      "name": "html",
-      "type": "Html",
-      "value": "Teste "
-     },
-     {
-      "name": "fontSize",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "color",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": "imp-titulo"
-     }
-    ],
-    "type": "LayoutHtml",
-    "typeDesc": "Html"
-   },
-   {
-    "id": "c676166e-859c-6723-9759-636d612f0391",
-    "parent": "00f5c937-5fdc-e550-643b-ae0d69b11cf5",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "ContainerGrafico03"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
     "id": "afe342d7-3708-32de-a2c0-88639b8d2544",
-    "type": "LayoutRow",
-    "typeDesc": "Row",
     "parent": "UnIqEiD",
     "properties": [
      {
       "name": "name",
-      "value": "TabelaContainer",
-      "type": "Id"
+      "type": "Id",
+      "value": "TabelaContainer"
      },
      {
       "name": "height",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "backgroundColor",
-      "value": "",
-      "type": "Color"
+      "type": "Color",
+      "value": ""
      },
      {
       "name": "roundCorners",
-      "value": "",
-      "type": "RoundCorners"
+      "type": "RoundCorners",
+      "value": ""
      },
      {
       "name": "textAlign",
-      "value": "",
-      "type": "TextAlign"
+      "type": "TextAlign",
+      "value": ""
      },
      {
       "name": "cssClass",
-      "value": "",
-      "type": "String"
+      "type": "String",
+      "value": ""
      }
-    ]
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
    },
    {
     "id": "21c20ae6-9052-8656-679a-6bec5a35d361",
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column",
     "parent": "afe342d7-3708-32de-a2c0-88639b8d2544",
     "properties": [
      {
       "name": "name",
-      "value": "TabelaElm",
-      "type": "Id"
+      "type": "Id",
+      "value": "TabelaElm"
      },
      {
       "name": "bootstrapExtraSmall",
-      "value": "12",
-      "type": "String"
+      "type": "String",
+      "value": "12"
      },
      {
       "name": "bootstrapSmall",
-      "value": "",
-      "type": "String"
+      "type": "String",
+      "value": ""
      },
      {
       "name": "bootstrapMedium",
-      "value": "",
-      "type": "String"
+      "type": "String",
+      "value": ""
      },
      {
       "name": "bootstrapLarge",
-      "value": "",
-      "type": "String"
+      "type": "String",
+      "value": ""
      },
      {
       "name": "bootstrapCssClass",
-      "value": "",
-      "type": "String"
+      "type": "String",
+      "value": ""
      },
      {
       "name": "height",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "backgroundColor",
-      "value": "",
-      "type": "Color"
+      "type": "Color",
+      "value": ""
      },
      {
       "name": "roundCorners",
-      "value": "",
-      "type": "RoundCorners"
+      "type": "RoundCorners",
+      "value": ""
      },
      {
       "name": "textAlign",
-      "value": "",
-      "type": "TextAlign"
+      "type": "TextAlign",
+      "value": ""
      },
      {
       "name": "cssClass",
-      "value": "imp-branco-bg imp-graficos-coluna imp-margem-vertical imp-tabela",
-      "type": "String"
+      "type": "String",
+      "value": "imp-branco-bg imp-graficos-coluna imp-margem-vertical imp-tabela"
      }
-    ]
+    ],
+    "type": "LayoutBootstrapColumn",
+    "typeDesc": "Column"
    },
    {
     "id": "dcd01adc-2825-0df4-34bc-d322dcad3af8",

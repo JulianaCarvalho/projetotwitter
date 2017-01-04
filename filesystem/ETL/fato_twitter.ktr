@@ -276,6 +276,18 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>hashtag_count</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>link_count</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>res</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
       <meta>        <name>tweet_id</name>
         <rename>tweet_id</rename>
@@ -622,6 +634,51 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
+      </meta>      <meta>        <name>hashtag_count</name>
+        <rename>hashtag_count</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>link_count</name>
+        <rename>link_count</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>res</name>
+        <rename>res</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>784</xloc>
@@ -642,7 +699,7 @@
            <schema_name/>
            </partitioning>
     <connection>projeto</connection>
-    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, tweet_texto&#xd;&#xa;, tweet_data&#xd;&#xa;, user_mentions&#xd;&#xa;, data_string_concat&#xd;&#xa;, user_screen_name&#xd;&#xa;, user_id&#xd;&#xa;, user_name&#xd;&#xa;, user_location&#xd;&#xa;, user_qtd_amigos&#xd;&#xa;, user_qtd_seguidores&#xd;&#xa;, user_qtd_listas&#xd;&#xa;, user_qtd_likes&#xd;&#xa;, hashtag&#xd;&#xa;, url_tweet&#xd;&#xa;, media&#xd;&#xa;, media_count&#xd;&#xa;, status&#xd;&#xa;, url_post&#xd;&#xa;, retweeted_status&#xd;&#xa;, retweeted_count&#xd;&#xa;, likes_count&#xd;&#xa;, tipo_interacao&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, tweet_texto&#xd;&#xa;, tweet_data&#xd;&#xa;, user_id&#xd;&#xa;, user_name&#xd;&#xa;, user_screen_name&#xd;&#xa;, user_location&#xd;&#xa;, user_qtd_amigos&#xd;&#xa;, user_qtd_seguidores&#xd;&#xa;, user_qtd_listas&#xd;&#xa;, user_qtd_likes&#xd;&#xa;, hashtag&#xd;&#xa;, user_mentions&#xd;&#xa;, url_tweet&#xd;&#xa;, media&#xd;&#xa;, media_count&#xd;&#xa;, hashtag_count&#xd;&#xa;, link_count&#xd;&#xa;, data_string_concat&#xd;&#xa;, url_post&#xd;&#xa;, retweeted_status&#xd;&#xa;, retweeted_count&#xd;&#xa;, likes_count&#xd;&#xa;, tipo_interacao&#xd;&#xa;, res&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

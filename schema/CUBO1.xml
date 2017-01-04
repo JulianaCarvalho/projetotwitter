@@ -7,13 +7,13 @@
         <Property name="C&#243;digo do tweet" column="tweet_id" type="String">
         </Property>
       </Level>
-      <Level name="Tipo de intera&#231;&#227;o" visible="true" column="tipo_interacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-      </Level>
       <Level name="Midia" visible="true" column="media" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
       <Level name="Hashtag" visible="true" column="hashtag" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
       <Level name="Link" visible="true" column="url_tweet" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="rt_string" visible="true" column="rt_string" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
   </Dimension>
@@ -90,6 +90,12 @@
     </Measure>
     <Measure name="qtd_media" column="media_count" datatype="Integer" aggregator="sum" visible="true">
     </Measure>
+    <Measure name="qtd_hashtag" column="hashtag_count" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="qtd_link" column="link_count" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="qtd_rt" column="res" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
   </Cube>
   <Cube name="Likes" visible="true" cache="true" enabled="true">
     <Table name="fato_likes" schema="public">
@@ -121,6 +127,12 @@
     <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[Quantidade de retweets]" visible="false">
     </VirtualCubeMeasure>
     <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[qtd_media]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[qtd_hashtag]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[qtd_link]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="Tweet" name="[Measures].[qtd_rt]" visible="true">
     </VirtualCubeMeasure>
     <CalculatedMember name="Quantidade de Likes" formula="ValidMeasure ([Measures].[Quantidade de likes])" dimension="Measures" visible="true">
     </CalculatedMember>

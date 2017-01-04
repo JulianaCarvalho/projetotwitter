@@ -5,6 +5,10 @@
          <Catalog>mondrian:/Twitter</Catalog>
          <Jndi>DW</Jndi>
       </Connection>
+      <Connection id="DStempoo" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
       <Connection id="DStempo_out" type="mondrian.jndi">
          <Catalog>mondrian:/Twitter</Catalog>
          <Jndi>DW</Jndi>
@@ -13,11 +17,15 @@
          <Catalog>mondrian:/Twitter</Catalog>
          <Jndi>DW</Jndi>
       </Connection>
+      <Connection id="DSLinkPercent" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
       <Connection id="DSHashtagPercent" type="mondrian.jndi">
          <Catalog>mondrian:/Twitter</Catalog>
          <Jndi>DW</Jndi>
       </Connection>
-      <Connection id="DSLinkPercent" type="mondrian.jndi">
+      <Connection id="DSRTPercent" type="mondrian.jndi">
          <Catalog>mondrian:/Twitter</Catalog>
          <Jndi>DW</Jndi>
       </Connection>
@@ -67,12 +75,36 @@ SELECT
 ,[*SORTED_ROW_AXIS] ON ROWS
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
+   <DataAccess access="public" connection="DStempoo" id="DStempoo" type="mdx">
+      <Name>DStempoo</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Output indexes="1,0" mode="include"/>
+      <Parameters/>
+      <Query><![CDATA[with member
+   [Measures].[uniqueName] as [Tempo].currentMember.uniqueName
+select
+[Measures].[uniqueName] on 0,
+union(
+    [Tempo].[Tudo],
+    filter(
+    [Tempo].children,
+    [Tempo].currentmember.name="2015" or [Tempo].currentmember.name="2016" or
+    [Tempo].currentmember.name="2017"
+)
+)  on 1
+
+from [Tweet x Likes]]]></Query>
+   </DataAccess>
    <DataAccess access="public" connection="DStempo_out" id="DStempo_out" type="mdx">
       <Name>DStempo_out</Name>
       <BandedMode>compact</BandedMode>
       <Cache duration="3600" enabled="true"/>
       <Columns/>
-      <Parameters/>
+      <Parameters>
+         <Parameter default="[Tempo].[Tudo]" name="tempo" type="String"/>
+      </Parameters>
       <Query><![CDATA[WITH
 SET [~ROWS] AS
     Hierarchize({{[Tempo].[Mes].Members}, {[Tempo].[Mes].Members}})
@@ -94,36 +126,61 @@ non empty [top3meses] on 1
 
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
-   <DataAccess access="public" connection="DSHashtagPercent" id="DSHashtagPercent" type="mdx">
-      <Name>DSHashtagPercent</Name>
-      <BandedMode>compact</BandedMode>
-      <Cache duration="3600" enabled="true"/>
-      <Columns/>
-      <Parameters/>
-      <Query><![CDATA[WITH 
-MEMBER [Measures].[Percentual] as
-SUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), 
-FORMAT_STRING = '###0.00%'
-
-SELECT
-{[Measures].[Quantidade de tweets],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,
-NON EMPTY [Tempo].[Tudo] ON 1
-FROM [Tweet x Likes]]]></Query>
-   </DataAccess>
    <DataAccess access="public" connection="DSLinkPercent" id="DSLinkPercent" type="mdx">
       <Name>DSLinkPercent</Name>
       <BandedMode>compact</BandedMode>
       <Cache duration="3600" enabled="true"/>
       <Columns/>
-      <Parameters/>
+      <Output indexes="0" mode="exclude"/>
+      <Parameters>
+         <Parameter default="[Tempo].[Tudo]" name="tempo" type="String"/>
+      </Parameters>
       <Query><![CDATA[WITH 
 MEMBER [Measures].[Percentual] as
-SUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), 
+SUM([Measures].[qtd_link])/ SUM([Measures].[Quantidade de tweets]), 
 FORMAT_STRING = '###0.00%'
-
+Member [Measures].[Nome] as  "Tweets que contém link"
 SELECT
-{[Measures].[Quantidade de tweets],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,
-NON EMPTY [Tempo].[Tudo] ON 1
+{[Measures].[Nome],[Measures].[qtd_link], [Measures].[Percentual]} ON 0,
+NON EMPTY head([Tempo].[Tudo],1) ON 1
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DSHashtagPercent" id="DSHashtagPercent" type="mdx">
+      <Name>DSHashtagPercent</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Output indexes="0" mode="exclude"/>
+      <Parameters>
+         <Parameter default="[Tempo].[Tudo]" name="tempo" type="String"/>
+      </Parameters>
+      <Query><![CDATA[WITH 
+MEMBER [Measures].[Percentual] as
+SUM([Measures].[qtd_hashtag])/ SUM([Measures].[Quantidade de tweets]), 
+FORMAT_STRING = '###0.00%'
+Member [Measures].[Nome] as  "Tweets que contém hashtag"
+SELECT
+{[Measures].[Nome],[Measures].[qtd_hashtag], [Measures].[Percentual]} ON 0,
+NON EMPTY head([Tempo].[Tudo],1) ON 1
+FROM [Tweet x Likes]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DSRTPercent" id="DSRTPercent" type="mdx">
+      <Name>DSRTPercent</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Output indexes="0" mode="exclude"/>
+      <Parameters>
+         <Parameter default="[Tempo].[Tudo]" name="tempo" type="String"/>
+      </Parameters>
+      <Query><![CDATA[WITH 
+MEMBER [Measures].[Percentual] as
+SUM([Measures].[qtd_rt])/ SUM([Measures].[Quantidade de tweets]), 
+FORMAT_STRING = '###0.00%'
+Member [Measures].[Nome] as  "Tweets são RT"
+SELECT
+{[Measures].[Nome],[Measures].[qtd_rt], [Measures].[Percentual]} ON 0,
+NON EMPTY head([Tempo].[Tudo],1) ON 1
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
    <DataAccess access="public" connection="DSMidiaPercent" id="DSMidiaPercent" type="mdx">
@@ -132,7 +189,9 @@ FROM [Tweet x Likes]]]></Query>
       <Cache duration="3600" enabled="true"/>
       <Columns/>
       <Output indexes="0" mode="exclude"/>
-      <Parameters/>
+      <Parameters>
+         <Parameter default="[Tempo].[Tudo]" name="tempo" type="String"/>
+      </Parameters>
       <Query><![CDATA[WITH 
 MEMBER [Measures].[Percentual] as
 SUM([Measures].[qtd_media])/ SUM([Measures].[Quantidade de tweets]), 

@@ -596,7 +596,7 @@ public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws K
            <schema_name/>
            </partitioning>
     <connection>projeto</connection>
-    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, user_screen_name&#xd;&#xa;, status&#xd;&#xa;, url_post&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
+    <sql>SELECT&#xd;&#xa;  tweet_id&#xd;&#xa;, user_screen_name&#xd;&#xa;, url_post&#xd;&#xa;FROM ods_tweets&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

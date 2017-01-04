@@ -2,25 +2,31 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css);
  
 body{
-   background-color:#E4E8EB;
+   background-color:#FFFFFF;
    font-family: 'Open Sans', sans-serif;
    font-weight:300;
 }
 
 .imp-cinza-claro-bg {background-color:#f7f7f7;}
 .imp-cinza-bg       {background-color:#E4E8EB;}
-.imp-teal-bg        {background-color:#1CB09A;}
-.imp-red-bg         {background-color:#DA534F;}
-.imp-blue-bg        {background-color:#418BCA;}
-.imp-dark-bg        {background-color:#1D2939;}
+.imp-teal-bg        {background-color:#009ACD;}
+.imp-red-bg         {background-color:#00688B;}
+.imp-blue-bg        {background-color:#009ACD;}
+.imp-dark-bg        {background-color:#00688B;}
 .imp-branco-bg      {background-color:#fff;}
+.imp-azul-claro-bg  {background-color:#F0F8FF;}
  
 .imp-cinza-claro    {color:#f7f7f7;}
 .imp-cinza          {color:#E4E8EB;}
 .imp-branco         {color:#fff;}
 .imp-red            {color:#DA534F;}
 .imp-transp         {opacity:.8;}
+.imp-blue           {color:#1E90FF;}
+.imp-azul-claro     {color:#ADD8E6;}
  
+.testev{
+    font-size:12px;
+} 
 h1.imp-titulo01 {
    font-weight: 300;
    font-size: 24px;
