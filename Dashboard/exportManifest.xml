@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
-    <ExportManifestInformation exportDate="04-01-2017 01:52:10 GMT-03:00" exportBy="admin" rootFolder="/public/" manifestVersion="2"/>
+    <ExportManifestInformation exportDate="09-01-2017 11:12:28 GMT-03:00" exportBy="admin" rootFolder="/public/" manifestVersion="2"/>
     <ExportManifestEntity path="Twitter">
         <ExportManifestProperty>
             <EntityMetaData name="Twitter" createdDate="2016-12-14T10:00:50.371-03:00" isFolder="true" path="Twitter" isHidden="false" locale="pt_BR" title="Twitter"/>

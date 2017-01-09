@@ -5,7 +5,11 @@
          <Catalog>mondrian:/Twitter</Catalog>
          <Jndi>DW</Jndi>
       </Connection>
-      <Connection id="DStempoo" type="mondrian.jndi">
+      <Connection id="DSUser_likes" type="mondrian.jndi">
+         <Catalog>mondrian:/Twitter</Catalog>
+         <Jndi>DW</Jndi>
+      </Connection>
+      <Connection id="DStempoFiltro" type="mondrian.jndi">
          <Catalog>mondrian:/Twitter</Catalog>
          <Jndi>DW</Jndi>
       </Connection>
@@ -59,24 +63,49 @@
       <Cache duration="3600" enabled="false"/>
       <Columns/>
       <Parameters>
-         <Parameter default="tweet" name="tweet" type="String"/>
-         <Parameter default="screen_name" name="scr" type="String"/>
+         <Parameter default="tempo" name="tempo" type="String"/>
+         <Parameter default="mes" name="mes" type="String"/>
       </Parameters>
-      <Query><![CDATA[// Request ID: fb9f9a8c-c5f1-11e6-a437-bc773765912c - RUN_REPORT
-WITH
-SET [*NATIVE_CJ_SET_WITH_SLICER] AS 'FILTER([*BASE_MEMBERS__Informações do tweet_], NOT ISEMPTY ([Measures].[Quantidade de Likes]) OR NOT ISEMPTY ([Measures].[Quantidade de Retweets]))'
+      <Query><![CDATA[WITH
+SET [temp] AS 'FILTER([Informações do tweet].[Texto do tweet].MEMBERS, NOT ISEMPTY ([Measures].[Quantidade de Likes]) OR NOT ISEMPTY ([Measures].[Quantidade de Retweets]))'
+SET [tweet] AS 'GENERATE([temp], {([Informações do tweet].CURRENTMEMBER)})'
+SET [teste] AS
+filter(
+ descendants(${tempo}, [Tempo].[Mes]),
+ [Tempo].currentMember.Name = iif("${mes}" = "0", [Tempo].currentMember.Name, "${mes}") 
+)
+SELECT
+{[Measures].[Quantidade de Likes],[Measures].[Quantidade de Retweets]} ON COLUMNS,
+ORDER([tweet],[Informações do tweet].CURRENTMEMBER.ORDERKEY,BASC) ON ROWS
+FROM [Tweet x Likes]
+WHERE
+{[teste]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="DSUser_likes" id="DSUser_likes" type="mdx">
+      <Name>DSUser_likes</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+SET [*NATIVE_CJ_SET_WITH_SLICER] AS '[*BASE_MEMBERS__User_likes_]'
 SET [*NATIVE_CJ_SET] AS '[*NATIVE_CJ_SET_WITH_SLICER]'
-SET [*SORTED_ROW_AXIS] AS 'ORDER([*CJ_ROW_AXIS],[Informações do tweet].CURRENTMEMBER.ORDERKEY,BASC)'
-SET [*BASE_MEMBERS__Measures_] AS '{[Measures].[Quantidade de Likes],[Measures].[Quantidade de Retweets]}'
-SET [*BASE_MEMBERS__Informações do tweet_] AS '[Informações do tweet].[Texto do tweet].MEMBERS'
-SET [*CJ_ROW_AXIS] AS 'GENERATE([*NATIVE_CJ_SET], {([Informações do tweet].CURRENTMEMBER)})'
+SET [*METRIC_CJ_SET] AS 'FILTER(FILTER([*NATIVE_CJ_SET],[Measures].[*TOP_Quantidade de likes_SEL~SUM] <= 10), NOT ISEMPTY ([Measures].[Quantidade de likes]))'
+SET [*BASE_MEMBERS__User_likes_] AS '[User_likes].[Screen_name].MEMBERS'
+SET [*SORTED_ROW_AXIS] AS 'ORDER([*CJ_ROW_AXIS],[Measures].[*SORTED_MEASURE],BDESC)'
+SET [*BASE_MEMBERS__Measures_] AS '{[Measures].[*FORMATTED_MEASURE_0]}'
+SET [*TOP_SET] AS 'ORDER(GENERATE([*NATIVE_CJ_SET],{[User_likes].CURRENTMEMBER}),([Measures].[Quantidade de likes]),BDESC)'
+SET [*CJ_ROW_AXIS] AS 'GENERATE([*METRIC_CJ_SET], {([User_likes].CURRENTMEMBER)})'
+MEMBER [Measures].[*FORMATTED_MEASURE_0] AS '[Measures].[Quantidade de likes]', FORMAT_STRING = '#,##0', SOLVE_ORDER=500
+MEMBER [Measures].[*SORTED_MEASURE] AS '([Measures].[*FORMATTED_MEASURE_0])', SOLVE_ORDER=400
+MEMBER [Measures].[*TOP_Quantidade de likes_SEL~SUM] AS 'RANK([User_likes].CURRENTMEMBER,[*TOP_SET])', SOLVE_ORDER=400
 SELECT
 [*BASE_MEMBERS__Measures_] ON COLUMNS
 ,[*SORTED_ROW_AXIS] ON ROWS
-FROM [Tweet x Likes]]]></Query>
+FROM [Likes]]]></Query>
    </DataAccess>
-   <DataAccess access="public" connection="DStempoo" id="DStempoo" type="mdx">
-      <Name>DStempoo</Name>
+   <DataAccess access="public" connection="DStempoFiltro" id="DStempoFiltro" type="mdx">
+      <Name>DStempoFiltro</Name>
       <BandedMode>compact</BandedMode>
       <Cache duration="3600" enabled="true"/>
       <Columns/>
@@ -90,8 +119,7 @@ union(
     [Tempo].[Tudo],
     filter(
     [Tempo].children,
-    [Tempo].currentmember.name="2015" or [Tempo].currentmember.name="2016" or
-    [Tempo].currentmember.name="2017"
+    [Tempo].currentmember.name="2015" or [Tempo].currentmember.name="2016"
 )
 )  on 1
 
@@ -105,12 +133,27 @@ from [Tweet x Likes]]]></Query>
       <Parameters>
          <Parameter default="[Tempo].[Tudo]" name="tempo" type="String"/>
       </Parameters>
-      <Query><![CDATA[WITH
-SET [~ROWS] AS
-    Hierarchize({{[Tempo].[Mes].Members}, {[Tempo].[Mes].Members}})
+      <Query><![CDATA[WITH 
+  SET [meses] as IIF (
+                        ${tempo} IS [Tempo].[Tudo],  
+                        tail(
+                          extract(
+                            nonemptycrossjoin(
+                                  descendants([Tempo],[Tempo].[Mes]),
+                                  [Measures].[Quantidade de tweets]
+                            ),
+                            [Tempo]
+                          ),
+                          12
+                        ),
+                        ${tempo}.children
+                      )
+
+  MEMBER [Measures].[Quantidade de Tweets] as coalesceempty([Measures].[Quantidade de tweets], 0)
+
 SELECT
-NON EMPTY {[Measures].[Quantidade de tweets]} ON COLUMNS,
-NON EMPTY [~ROWS] ON ROWS
+  [Measures].[Quantidade de Tweets] ON COLUMNS,
+  [meses] ON ROWS
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
    <DataAccess access="public" connection="DStop3meses" id="DStop3meses" type="mdx">
@@ -142,7 +185,7 @@ FORMAT_STRING = '###0.00%'
 Member [Measures].[Nome] as  "Tweets que contém link"
 SELECT
 {[Measures].[Nome],[Measures].[qtd_link], [Measures].[Percentual]} ON 0,
-NON EMPTY head([Tempo].[Tudo],1) ON 1
+NON EMPTY ${tempo} ON 1
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
    <DataAccess access="public" connection="DSHashtagPercent" id="DSHashtagPercent" type="mdx">
@@ -161,7 +204,7 @@ FORMAT_STRING = '###0.00%'
 Member [Measures].[Nome] as  "Tweets que contém hashtag"
 SELECT
 {[Measures].[Nome],[Measures].[qtd_hashtag], [Measures].[Percentual]} ON 0,
-NON EMPTY head([Tempo].[Tudo],1) ON 1
+NON EMPTY ${tempo} ON 1
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
    <DataAccess access="public" connection="DSRTPercent" id="DSRTPercent" type="mdx">
@@ -180,7 +223,7 @@ FORMAT_STRING = '###0.00%'
 Member [Measures].[Nome] as  "Tweets são RT"
 SELECT
 {[Measures].[Nome],[Measures].[qtd_rt], [Measures].[Percentual]} ON 0,
-NON EMPTY head([Tempo].[Tudo],1) ON 1
+NON EMPTY ${tempo} ON 1
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
    <DataAccess access="public" connection="DSMidiaPercent" id="DSMidiaPercent" type="mdx">
@@ -199,7 +242,7 @@ FORMAT_STRING = '###0.00%'
 Member [Measures].[Nome] as  "Tweets que contém midia"
 SELECT
 {[Measures].[Nome],[Measures].[qtd_media], [Measures].[Percentual]} ON 0,
-NON EMPTY head([Tempo].[Tudo],1) ON 1
+NON EMPTY ${tempo} ON 1
 FROM [Tweet x Likes]]]></Query>
    </DataAccess>
    <DataAccess access="public" connection="DStweet" id="DStweet" type="mdx">
